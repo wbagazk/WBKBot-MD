@@ -1,11 +1,11 @@
   /** !-======[ WBK BOT ]======-!
-  	  * Recode by @wbagazk
+      * Recode by @wbagazk
       🩵 Follow me on :
       ▪︎ https://instagra.com/@wbagazk
       ▪︎ https://github.com/wbagazk
       ▪︎ https://wbagazk.my.id/
 
-      * Coding by @rifza.p.p *     
+      * Create by @rifza.p.p *     
       🩵 Follow on :
       ▪︎ https://youtube.com/@rifza  
       ▪︎ https://github.com/Rifza123
