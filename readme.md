@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://wbagazk.github.io">
-    <img src="https://readme-typing-svg.herokuapp.com?size=15&width=280&lines=WBKBot+Multi+Device+Created+By+WBagaZK+🌐" alt="wbagazk"/>
+    <img src="https://readme-typing-svg.herokuapp.com?size=15&width=350&lines=WBKBot+Multi+Device+Created+By+WBagaZK+🌐" alt="wbagazk"/>
   </a>
 </p>
 
