@@ -165,15 +165,15 @@ ev.on({
 ---
 
 ## 💖 Donate
-- [Saweria](https://saweria.co/itzpire)
-- [Trakteer](https://trakteer.id/itzpire_business)
+- [Saweria](https://saweria.co/wbagazk)
+- [Trakteer](https://trakteer.id/wbagazk)
 
 ---
 
 ## 🙏 Thanks to
-<a href="https://github.com/wbagazk"><img src="https://github.com/wbagazk.png?size=100" width="100" height="100"></a> | <a href="https://github.com/Rifza123"><img src="https://github.com/Rifza123.png?size=100" width="100" height="100"></a> | <a href="https://ai.xterm.codes/"><img src="https://telegra.ph/file/35b9ec32bf79b8694ff82.jpg?size=100" width="100" height="100"></a> 
+<center><a href="https://github.com/wbagazk"><img src="https://github.com/wbagazk.png?size=100" width="100" height="100"></a> | <a href="https://github.com/Rifza123"><img src="https://github.com/Rifza123.png?size=100" width="100" height="100"></a> | <a href="https://ai.xterm.codes/"><img src="https://telegra.ph/file/35b9ec32bf79b8694ff82.jpg?size=100" width="100" height="100"></a></center>
 ---|---|---
-[WBagaZK](https://github.com/wbagazk)  | [Rifza](https://github.com/Rifza123) | [Termai](https://ai.xterm.codes/) 
-Developer | Creator | API | 
+<center>[WBagaZK](https://github.com/wbagazk)  | [Rifza](https://github.com/Rifza123) | [Termai](https://ai.xterm.codes/) 
+Developer | Creator | API |</center>
 
 ---
