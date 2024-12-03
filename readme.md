@@ -1,6 +1,47 @@
-# Experimental-Bell
 
-## Instalasi awal
+
+<p align="center">
+  <a href="https://wbagazk.github.io">
+    <img src="https://readme-typing-svg.herokuapp.com?size=15&width=280&lines=WBKBot+Multi+Device+Created+By+WBagaZK+🌐" alt="wbagazk"/>
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://wbagazk.github.io">
+    <img title="Bot-Whatsapp" src="https://img.shields.io/badge/Bot-Whatsapp-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/wbagazk/followers">
+    <img title="Followers" src="https://img.shields.io/github/followers/wbagazk?color=red&style=flat-square">
+  </a>
+  <a href="https://github.com/wbagazk/WBKBot-MD/stargazers/">
+    <img title="Stars" src="https://img.shields.io/github/stars/wbagazk/WBKBot-MD?color=blue&style=flat-square">
+  </a>
+  <a href="https://github.com/wbagazk/WBKBot-MD/network/members/">
+    <img title="Forks" src="https://img.shields.io/github/forks/wbagazk/WBKBot-MD?color=red&style=flat-square">
+  </a>
+  <a href="https://github.com/wbagazk/WBKBot-MD/watchers/">
+    <img title="Watching" src="https://img.shields.io/github/watchers/wbagazk/WBKBot-MD?label=Watchers&color=blue&style=flat-square">
+  </a>
+  <a href="https://github.com/wbagazk/WBKBot-MD/">
+    <img title="Open Source" src="https://badges.frapsoft.com/os/v2/open-source.svg?v=103">
+  </a>
+  <a href="https://github.com/wbagazk/WBKBot-MD/">
+    <img title="Size" src="https://img.shields.io/github/repo-size/wbagazk/WBKBot-MD?style=flat-square&color=green">
+  </a>
+  <a href="https://hits.seeyoufarm.com">
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fwbagazk%2FWBKBot-MD&count_bg=%2379C83D&title_bg=%23555555&icon=probot.svg&icon_color=%2300FF6D&title=hits&edge_flat=false"/>
+  </a>
+  <a href="https://github.com/wbagazk/WBKBot-MD/graphs/commit-activity">
+    <img height="20" src="https://img.shields.io/badge/Maintained%3F-no-green.svg">
+  </a>
+</p>
+
+---
+
+# 🧑🏽‍💻 INSTALASI
 
 1. Update package
 
@@ -29,36 +70,34 @@ apt install git
 5. Cloning repo
 
 ```bash
-git clone https://github.com/Rifza123/Experimental-Bell.git
+git clone https://github.com/wbagazk/WBKBot-MD.git
 ```
 
-## Cara Pasang
-
-### Prasyarat
-
-1. Saat Anda mendapatkan kode sumber ini, pastikan untuk menginstal semua modul yang diperlukan dengan menjalankan perintah ini di terminal atau command prompt:
+6. Saat Anda mendapatkan kode sumber ini, pastikan untuk menginstal semua modul yang diperlukan dengan menjalankan perintah ini di terminal atau command prompt:
 
 ```bash
-cd /halaman/mengarah/ke/Experimental-Bell
+cd WBKBot-MD
 ```
 ```bash
 npm install
 ```
 
-2. Setelah selesai menginstal, jalankan bot dengan perintah:
+7. Setelah selesai menginstal, jalankan bot dengan perintah:
 
 ```bash
 npm start
 ```
 
-### Cara Menghubungkan ke Nomor WhatsApp
+---
+
+# 📲 CONNECT TO WHATSAPP
 
 1. Setelah bot dijalankan, akan ada opsi untuk menghubungkan ke nomor WhatsApp Anda melalui QR atau pairing.
 
 2. Jika Anda memilih QR, Anda memerlukan perangkat tambahan. Disarankan untuk menggunakan opsi pairing.
 
 3. Jika Anda memilih pairing:
-   - Masukkan nomor WhatsApp Anda, contoh: 62831109XXXXX.
+   - Masukkan nomor WhatsApp Anda, contoh: 6285183XXXXXX.
    - Salin kode yang ditampilkan.
    - Buka WhatsApp Anda dan ikuti langkah-langkah berikut:
      - Klik titik tiga di kanan atas.
@@ -70,7 +109,7 @@ Jika mengalami kesulitan, coba hapus folder `lib/connection/session` dan jalanka
 
 ---
 
-### Cara Mengimpor Modul
+# IMPOR MODUL
 
 ```javascript
 const fs = "fs".import(); 
@@ -80,7 +119,7 @@ const fs = "fs".import();
 
 ---
 
-### Cara Mengimpor Fungsi
+# IMPOR FUNGSI
 
 Impor fungsi selalu dimulai dari awal, jadi tidak perlu kembali mundur dengan cara `../../`. Semua dimulai dari awal!
 
@@ -92,7 +131,8 @@ const events = await "./tolkit/events.js".r()
 
 ---
 
-### Penggunaan Event Emitter 
+# PENGGUNAAN EVENT EMITTER
+
 Menambahkan atau mengubah file di dalam folder `./helpers/Events` secara otomatis terdeteksi.
 
 Berikut adalah bagian-bagian yang tersedia dalam events ini:
@@ -121,3 +161,19 @@ ev.on({
     // jika save true maka media adalah nama file yang tersimpan
 });
 ```
+
+---
+
+## 💖 Donate
+- [Saweria](https://saweria.co/itzpire)
+- [Trakteer](https://trakteer.id/itzpire_business)
+
+---
+
+## 🙏 Thanks to
+<a href="https://github.com/wbagazk"><img src="https://github.com/wbagazk.png?size=100" width="100" height="100"></a> | <a href="https://github.com/Rifza123"><img src="https://github.com/Rifza123.png?size=100" width="100" height="100"></a> | <a href="https://ai.xterm.codes/"><img src="https://telegra.ph/file/35b9ec32bf79b8694ff82.jpg?size=100" width="100" height="100"></a> 
+---|---|---
+[WBagaZK](https://github.com/wbagazk)  | [Rifza](https://github.com/Rifza123) | [Termai](https://ai.xterm.codes/) 
+Developer | Creator | API | 
+
+---

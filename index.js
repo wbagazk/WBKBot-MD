@@ -1,7 +1,12 @@
-  /** !-======[ Experimentall ▪︎ Bell🦋 ]======-!
+  /** !-======[ WBK BOT ]======-!
+  	  * Recode by @wbagazk
+      🩵 Follow me on :
+      ▪︎ https://instagra.com/@wbagazk
+      ▪︎ https://github.com/wbagazk
+      ▪︎ https://wbagazk.my.id/
+
       * Coding by @rifza.p.p *     
-      
-      🩵 Follow ️me on :
+      🩵 Follow on :
       ▪︎ https://youtube.com/@rifza  
       ▪︎ https://github.com/Rifza123
       ▪︎ https://instagram.com/rifza.p.p?igshid=ZGUzMzM3NWJiOQ==

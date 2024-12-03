@@ -1,7 +1,7 @@
 {
-  "name": "experimental-Bell",
-  "version": "1.0.0",
-  "description": "Artificial Intelligence, The beginning of the robot era",
+  "name": "WBKBot",
+  "version": "0.0.5",
+  "description": "Artificial Intelligence, The Rise of the Robotic Age",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rifza123/Experimental-Bell.git"
+    "url": "git+https://github.com/wbagazk/WBKBot-MD.git"
   },
   "keywords": [
     "whatsapp-bot-ai"
@@ -18,9 +18,9 @@
   "author": "@rifza.p.p",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rifza123/Experimental-Bell/issues"
+    "url": "https://github.com/wbagazk/WBKBot-MD/issues"
   },
-  "homepage": "https://github.com/Rifza123/Experimental-Bell#readme",
+  "homepage": "https://github.com/wbagazk/WBKBot-MD#readme",
   "dependencies": {
     "@whiskeysockets/baileys": "^6.6.0",
     "chalk": "^3.0.0",
