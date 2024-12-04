@@ -429,7 +429,7 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
         energy: 7
     }, async() => {
         let res = await gpt(cht.q)
-        cht.reply("[ GPT-3 ]\n"+res.response)
+        cht.reply("[ ChatGPT by WBK ]\n"+res.response)
 	})
 	
     ev.on({ 
