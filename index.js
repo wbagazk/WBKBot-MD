@@ -5,7 +5,7 @@
       ▪︎ https://github.com/wbagazk
       ▪︎ https://wbagazk.my.id/
 
-      * Create by @rifza.p.p *     
+      * Credit @rifza.p.p *     
       🩵 Follow on :
       ▪︎ https://youtube.com/@rifza  
       ▪︎ https://github.com/Rifza123
