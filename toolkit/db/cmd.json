@@ -1,0 +1,471 @@
+{
+  "total": 511,
+  "ai_response": 293,
+  "cmd": [
+    {
+      "name": "menu",
+      "use": 163,
+      "times": "03/12 19:11:23"
+    },
+    {
+      "name": "autoai",
+      "use": 17,
+      "times": "03/12 19:11:23"
+    },
+    {
+      "name": "set",
+      "use": 21,
+      "times": "03/12 08:05:30"
+    },
+    {
+      "name": "resetaichat",
+      "use": 2,
+      "times": "29/11 10:24:46"
+    },
+    {
+      "name": "dalle3",
+      "use": 10,
+      "times": "03/12 19:11:23"
+    },
+    {
+      "name": "tiktok",
+      "use": 11,
+      "times": "02/12 20:07:46"
+    },
+    {
+      "name": "ig",
+      "use": 2,
+      "times": "29/11 15:29:53"
+    },
+    {
+      "name": "ssweb",
+      "use": 2,
+      "times": "29/11 16:29:38"
+    },
+    {
+      "name": "addprem",
+      "use": 3,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "setthumb",
+      "use": 1,
+      "times": "29/11 11:00:15"
+    },
+    {
+      "name": "charge",
+      "use": 7,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "profile",
+      "use": 23,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "stats",
+      "use": 3,
+      "times": "29/11 12:36:50"
+    },
+    {
+      "name": "lorasearch",
+      "use": 1,
+      "times": "29/11 11:00:15"
+    },
+    {
+      "name": "songgenerator",
+      "use": 5,
+      "times": "29/11 14:19:34"
+    },
+    {
+      "name": "status",
+      "use": 1,
+      "times": "29/11 12:36:50"
+    },
+    {
+      "name": "freetrial",
+      "use": 2,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "getdata",
+      "use": 2,
+      "times": "29/11 12:36:50"
+    },
+    {
+      "name": "premium",
+      "use": 12,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "luma",
+      "use": 6,
+      "times": "03/12 19:11:23"
+    },
+    {
+      "name": "bard",
+      "use": 3,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "geminiimage",
+      "use": 3,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "songai",
+      "use": 2,
+      "times": "29/11 14:19:34"
+    },
+    {
+      "name": "faceswap",
+      "use": 10,
+      "times": "29/11 23:56:57"
+    },
+    {
+      "name": "mediafire",
+      "use": 3,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "playvn",
+      "use": 1,
+      "times": "29/11 14:19:34"
+    },
+    {
+      "name": "play",
+      "use": 7,
+      "times": "03/12 11:26:00"
+    },
+    {
+      "name": "ytmp4",
+      "use": 10,
+      "times": "02/12 23:25:59"
+    },
+    {
+      "name": "ytm4a",
+      "use": 3,
+      "times": "29/11 14:51:38"
+    },
+    {
+      "name": "ytmp3",
+      "use": 2,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "gitclone",
+      "use": 1,
+      "times": "29/11 15:29:53"
+    },
+    {
+      "name": "group",
+      "use": 3,
+      "times": "29/11 16:05:43"
+    },
+    {
+      "name": "linkgc",
+      "use": 1,
+      "times": "29/11 15:29:53"
+    },
+    {
+      "name": "on",
+      "use": 5,
+      "times": "29/11 17:23:44"
+    },
+    {
+      "name": "getpp",
+      "use": 1,
+      "times": "29/11 15:52:40"
+    },
+    {
+      "name": "@",
+      "use": 12,
+      "times": "03/12 11:26:00"
+    },
+    {
+      "name": "off",
+      "use": 1,
+      "times": "29/11 15:52:40"
+    },
+    {
+      "name": "qc",
+      "use": 2,
+      "times": "30/11 17:50:12"
+    },
+    {
+      "name": "reactionmenu",
+      "use": 1,
+      "times": "29/11 16:09:37"
+    },
+    {
+      "name": "delete",
+      "use": 1,
+      "times": "29/11 16:09:37"
+    },
+    {
+      "name": "getviewonce",
+      "use": 2,
+      "times": "29/11 16:09:37"
+    },
+    {
+      "name": "backup",
+      "use": 5,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "mmmmmmining",
+      "use": 1,
+      "times": "29/11 16:21:34"
+    },
+    {
+      "name": "remini",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "tmpfiles",
+      "use": 2,
+      "times": "29/11 19:00:02"
+    },
+    {
+      "name": "tourl",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "catbox",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "img2prompt",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "enhance",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "whatmusic",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "transcribe",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "getchid",
+      "use": 3,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "colong",
+      "use": 3,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "c",
+      "use": 32,
+      "times": "03/12 19:11:23"
+    },
+    {
+      "name": "toimg",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "removebg",
+      "use": 2,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "objectdetection",
+      "use": 1,
+      "times": "29/11 16:31:23"
+    },
+    {
+      "name": "kick",
+      "use": 3,
+      "times": "29/11 17:23:44"
+    },
+    {
+      "name": "add",
+      "use": 3,
+      "times": "29/11 17:23:44"
+    },
+    {
+      "name": "k",
+      "use": 1,
+      "times": "29/11 17:23:44"
+    },
+    {
+      "name": "sticker",
+      "use": 1,
+      "times": "29/11 19:06:20"
+    },
+    {
+      "name": "tt",
+      "use": 2,
+      "times": "30/11 22:38:03"
+    },
+    {
+      "name": "faceswap-change",
+      "use": 1,
+      "times": "29/11 23:56:57"
+    },
+    {
+      "name": "faceswap-reset",
+      "use": 1,
+      "times": "29/11 23:56:57"
+    },
+    {
+      "name": "addenergy",
+      "use": 2,
+      "times": "30/11 17:50:12"
+    },
+    {
+      "name": "s",
+      "use": 3,
+      "times": "03/12 19:11:23"
+    },
+    {
+      "name": "resetautoai",
+      "use": 2,
+      "times": "30/11 22:53:11"
+    },
+    {
+      "name": "pinterest",
+      "use": 3,
+      "times": "30/11 22:53:11"
+    },
+    {
+      "name": "mining",
+      "use": 10,
+      "times": "02/12 14:34:01"
+    },
+    {
+      "name": "owner",
+      "use": 13,
+      "times": "02/12 20:07:46"
+    },
+    {
+      "name": "brat",
+      "use": 4,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "8234",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "4332",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "1017",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "copy",
+      "use": 2,
+      "times": "03/12 11:26:00"
+    },
+    {
+      "name": "2591",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "291",
+      "use": 2,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "cekapikey",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "filter",
+      "use": 2,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "enlarger",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "845",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "285",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "100",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "533",
+      "use": 1,
+      "times": "02/12 18:11:36"
+    },
+    {
+      "name": "gpt3",
+      "use": 2,
+      "times": "02/12 20:07:46"
+    },
+    {
+      "name": "animediff",
+      "use": 1,
+      "times": "02/12 20:07:46"
+    },
+    {
+      "name": "laguai",
+      "use": 1,
+      "times": "02/12 20:07:46"
+    },
+    {
+      "name": "instagram",
+      "use": 1,
+      "times": "02/12 23:21:52"
+    },
+    {
+      "name": "9273",
+      "use": 1,
+      "times": "03/12 10:29:03"
+    },
+    {
+      "name": "6848",
+      "use": 11,
+      "times": "03/12 11:26:00"
+    },
+    {
+      "name": "ss",
+      "use": 1,
+      "times": "03/12 11:26:00"
+    },
+    {
+      "name": "2734",
+      "use": 2,
+      "times": "03/12 19:11:23"
+    },
+    {
+      "name": "5856",
+      "use": 1,
+      "times": "03/12 19:11:23"
+    }
+  ]
+}

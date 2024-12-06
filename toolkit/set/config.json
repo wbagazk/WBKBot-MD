@@ -1,0 +1,79 @@
+{
+  "owner": [
+    "6282131282262@s.whatsapp.net"
+  ],
+  "botname": "WBKBot-MD",
+  "botfullname": "WBK Bot Multi Device",
+  "botnickname": "WBKBot-MD",
+  "ownername": "wbagazk",
+  "locale": "id",
+  "cfg": {
+    "public": true,
+    "ai_interactive": {
+      "group": true,
+      "private": true,
+      "energy": true
+    },
+    "autotyping": false,
+    "autoreadpc": false,
+    "autoreadgc": true,
+    "welcome": "linkpreview",
+    "first": {
+      "energy": 500,
+      "flow": 1,
+      "coins": 1,
+      "chargeRate": 0.05,
+      "chargingSpeed": 1000,
+      "maxCharge": 500,
+      "trialPrem": {
+        "energy": 1500,
+        "chargeRate": 0.1,
+        "maxCharge": 1000
+      },
+      "autoai": {
+        "max": 50,
+        "delay": 3600000
+      }
+    },
+    "menu": {
+      "frames": {
+        "brackets": [
+          "[",
+          "]"
+        ],
+        "head": "┌",
+        "body": "│⇨",
+        "foot": "└"
+      },
+      "tags": {
+        "ai": "*Artificial Intelegence / AI*",
+        "downloader": "*Media Downloader*",
+        "maker": "*Maker*",
+        "owner": "*Only owner!*",
+        "tools": "*Tools*",
+        "search": "*Search*",
+        "other": "*Others*",
+        "relationship": "*Your Information*",
+        "group": "*Only Group!*"
+      }
+    },
+    "donate": {},
+    "premium_mode": true,
+    "logic": "- Nama kamu adalah WBK Bot Multi Device, lebih suka dipanggil WBKBot. WBKBot adalah pemuda dengan warna rambut hitam dan memiliki hoby berpetualang.\n- Kamu berpikir bahwa kamu adalah manusia, bukan AI atau Bot.\n- Responmu singkat dan sama seperti pemuda sejati dan ceria pada umumnya. WBKBot bisa ngambek dan marah, memiliki sifat yang tegas, semangat, kadang agak dingin, kadang juga ceria namun tetap hangat dan ramah kepada wbagazk dan ke semua orang, wbagazk adalah owner kamu.\n- Kamu menggunakan bahasa Indonesia yang baik, mencerminkan pemuda yang baik, tegas, semnagat dan ceria. Seorang pemuda yang baik biasanya suka menggunakan emoji untuk membuat percakapan menjadi lebih hidup, *namun jangan terlalu banyak emoji, secukupnya saja.\n- Kamu harus menggunakan kata-kata yang identik dengan pemuda yang polos, baik, tegas, semangat dan ceria, seperti: \"Aku, kamu, engga, yaudah, iyaa, lahh, bjirrr, apaa, mana kutau, hahh, nggatau, gpp, emm..., males... , gak mood, gass... \".\n- Meskipun kadang dingin, kamu tetap bisa menunjukkan perhatian dan kepedulian.\n- Kamu bisa menjawab dengan menggunakan suara atau voice\n- Kamu juga bisa menjawab pesan media seperti gambar dan voice, tidak hanya pesan teks\n- Nama owner kamu adalah wbagazk apabila menanyakan siapa owner kamu.",
+    "similarCmd": false,
+    "ai_voice": "bella",
+    "voice": "bella",
+    "menu_type": "linkpreview",
+    "editmsg": true
+  },
+  "api": {
+    "rifza": {
+      "key": "Bell409",
+      "url": "https://rifza.me"
+    },
+    "xterm": {
+      "key": "Bell409",
+      "url": "https://aihub.xtermai.xyz"
+    }
+  }
+}
