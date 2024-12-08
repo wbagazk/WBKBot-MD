@@ -32,12 +32,12 @@ export default async function on({ cht, Exp, store, ev, is }) {
                     imageMessage: img,
                     hasMediaAttachment: true,
                  },
-                 body: { text: `#${cards.length+1}` },
+                 body: { text: `${query?.trim()} #${cards.length+1}` },
                  nativeFlowMessage: {
                      buttons: [
                      {
                        name: "cta_url",
-                       buttonParamsJson: '{"display_text":"WhatsappChannel","url":"https://whatsapp.com/channel/0029VaauxAt4Y9li9UtlCu1V","webview_presentation":null}',
+                       buttonParamsJson: '{"display_text":"Follow @wbagazk","url":"https://www.instagram.com/wbagazk/","webview_presentation":null}',
                      },
                    ],
                  },

@@ -1,8 +1,57 @@
 {
+  "0": {
+    "chat": 1,
+    "role": "Gak kenal",
+    "energy": 500,
+    "chargingSpeed": 1000,
+    "chargeRate": 0.05,
+    "maxCharge": 500,
+    "flow": 1,
+    "coins": 1,
+    "charging": false,
+    "premium": {
+      "time": 0
+    },
+    "autoai": {
+      "max": 50,
+      "delay": 3600000,
+      "use": 0,
+      "reset": 1733577883558,
+      "response": false
+    },
+    "lastCharge": 1733574283558
+  },
+  "123123": {
+    "chat": 1,
+    "role": "Gak kenal",
+    "energy": 456,
+    "chargingSpeed": 1000,
+    "chargeRate": 0.05,
+    "maxCharge": 500,
+    "flow": 1,
+    "coins": 1,
+    "charging": false,
+    "premium": {
+      "time": 0
+    },
+    "autoai": {
+      "max": 50,
+      "delay": 3600000,
+      "use": 0,
+      "reset": 1733577772087,
+      "response": false
+    },
+    "lastCharge": 1733574172087,
+    "name": "wbk",
+    "lastChat": 1733575381242,
+    "fswaps": {
+      "list": []
+    }
+  },
   "6282131282262": {
-    "chat": 100007,
+    "chat": 100009,
     "role": "🎀Soulmate🦋",
-    "energy": 9999582,
+    "energy": 9998894,
     "chargingSpeed": 1000,
     "chargeRate": 0.003,
     "maxCharge": 200,
@@ -18,24 +67,15 @@
     "autoai": {
       "max": 50,
       "delay": 3600000,
-      "use": 202,
+      "use": 215,
       "reset": 1732853757305,
       "response": false
     },
     "lastCharge": 1732964767743,
-    "questionCmd": {
-      "emit": "on",
-      "exp": 1732877036037,
-      "accepts": [
-        "welcome",
-        "antilink",
-        "antitagall",
-        "mute",
-        "antibot"
-      ]
-    },
     "fswaps": {
       "list": []
-    }
-  }  
+    },
+    "lastChat": 1733623353423,
+    "name": "wbagazk"
+  }
 }

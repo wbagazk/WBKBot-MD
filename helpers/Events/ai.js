@@ -286,6 +286,8 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
     let [text1, text2] = cht.q ? cht.q.split("|") : []
         await cht.edit(infos.messages.wait, keys[sender])
         await Exp.sendMessage(id, { image: { url: api.xterm.url + "/api/text2img/dalle3?prompt="+text1 + "&key=" + api.xterm.key + ( text2 ? "&prompt="+text2 : "") } }, { quoted: cht })
+        let failed = Exp.sendMessage
+        console.log(failed)
 	})
 
 	ev.on({ 
