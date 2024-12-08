@@ -106,10 +106,12 @@ global["Data"] = {
       "nokotan",
       "jokowi",
       "boboiboy",
+      "anya",
       "keqing",
       "yanami_anna",
       "MasKhanID"
-    ]
+    ],
+    spinner: "⠇⠋⠙⠹⠼⠦".split('')
 }
 
 /*!-======[ Definition of Infos ]======-!*/
