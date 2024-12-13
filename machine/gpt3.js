@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 export async function gpt(prompt){
   try {
      let res = await fetch(`${api.xterm.url}/api/chat/gpt?key=${api.xterm.key}`, {

@@ -1,9 +1,9 @@
   /** !-======[ WBK BOT ]======-!
-      * Recode by @wbagazk
+      * Developer by @wbagazk
       🩵 Follow me on :
-      ▪︎ https://instagra.com/@wbagazk
       ▪︎ https://github.com/wbagazk
       ▪︎ https://wbagazk.my.id/
+      ▪︎ All Sosmed : @wbagazk
 
       * Credit @rifza.p.p *     
       🩵 Follow on :
@@ -30,13 +30,13 @@ const { func } = await `${fol[0]}func.js`.r()
 let {
     makeWASocket,
     useMultiFileAuthState,
-  	DisconnectReason,
-  	getContentType,
-  	makeInMemoryStore,
-  	getBinaryNodeChild, 
-  	jidNormalizedUser,
-  	makeCacheableSignalKeyStore,
-  	Browsers
+    DisconnectReason,
+    getContentType,
+    makeInMemoryStore,
+    getBinaryNodeChild, 
+    jidNormalizedUser,
+    makeCacheableSignalKeyStore,
+    Browsers
 } = baileys;
 
 /*!-======[ Functions Imports ]======-!*/
@@ -64,26 +64,21 @@ async function launch() {
  
         await sleep(1000)
         const opsi = await question(quest);
-  	    if (opsi == "pairing") {
-  			global.pairingCode = true
-  		} else if (opsi == "qr") {
-  			global.pairingCode = false
-  		} else {
-  			console.log(`Pilihan opsi tidak tersedia!`)
-  		}
-  	}
-  	
-  	let { state, saveCreds } = await useMultiFileAuthState(session);
+        if (opsi == "pairing") {
+        global.pairingCode = true
+      } else if (opsi == "qr") {
+        global.pairingCode = false
+      } else {
+        console.log(`Pilihan opsi tidak tersedia!`)
+      }
+    }
+    
+    let { state, saveCreds } = await useMultiFileAuthState(session);
         const Exp = makeWASocket({
             logger,
             printQRInTerminal: !global.pairingCode,
             browser: Browsers.ubuntu('Chrome'),
-            auth: state,
-            getMessage: async (key) => {
-              let jid = jidNormalizedUser(key.remoteJid)
-              let msg = await store.loadMessage(jid, key.id)
-              return msg?.message || ""
-            }
+            auth: state
         });
         
         if (global.pairingCode && !Exp.authState.creds.registered) {
@@ -120,25 +115,25 @@ async function launch() {
             id = jidNormalizedUser(id)
             const jimpread = await jimp.read(buffer);
             const min = jimpread.getWidth()
-         	const max = jimpread.getHeight()
-        	const cropped = jimpread.crop(0, 0, min, max)
+          const max = jimpread.getHeight()
+          const cropped = jimpread.crop(0, 0, min, max)
 
             let buff = await cropped.scaleToFit(720, 720).getBufferAsync(jimp.MIME_JPEG)
             return await Exp.query({
-				tag: 'iq',
-				attrs: {
-				    to: "@s.whatsapp.net",
-					type:'set',
-					xmlns: 'w:profile:picture'
-				},
-				content: [
-					{
-						tag: 'picture',
-						attrs: { type: 'image' },
-						content: buff
-					}
-				]
-			})
+        tag: 'iq',
+        attrs: {
+            to: "@s.whatsapp.net",
+          type:'set',
+          xmlns: 'w:profile:picture'
+        },
+        content: [
+          {
+            tag: 'picture',
+            attrs: { type: 'image' },
+            content: buff
+          }
+        ]
+      })
           } catch (e) {
               throw new Error(e)
           }
@@ -152,36 +147,36 @@ async function launch() {
         Exp.ev.on('creds.update', saveCreds);
         
         Exp.ev.on('messages.upsert', async ({
-  			messages
-  		}) => {
+        messages
+      }) => {
             const cht = {
                 ...messages[0],
                 id: messages[0].key.remoteJid
             }
             let isMessage = cht?.message
             let isStubType = cht?.messageStubType
-  			if (!(isMessage || isStubType)) return;
-  			if (cht.key.remoteJid === 'status@broadcast' && cfg.autoreadsw == true) {
-  				await Exp.readMessages([cht.key]);
-  				let typ = getContentType(cht.message);
-  				console.log((/protocolMessage/i.test(typ)) ? `${cht.key.participant.split('@')[0]} Deleted story❗` : 'View user stories : ' + cht.key.participant.split('@')[0]);
-  				return
-  			}
-  			 if (cht.key.remoteJid !== 'status@broadcast'){
-  			     const exs = { cht, Exp, is: {}, store }
-  			     await Data.utils(exs)
-  			     
-  			     if(isStubType) { 
-  			       Data.stubTypeMsg(exs)
-  			     } else { 
+        if (!(isMessage || isStubType)) return;
+        if (cht.key.remoteJid === 'status@broadcast' && cfg.autoreadsw == true) {
+          await Exp.readMessages([cht.key]);
+          let typ = getContentType(cht.message);
+          console.log((/protocolMessage/i.test(typ)) ? `${cht.key.participant.split('@')[0]} Deleted story❗` : 'View user stories : ' + cht.key.participant.split('@')[0]);
+          return
+        }
+         if (cht.key.remoteJid !== 'status@broadcast'){
+             const exs = { cht, Exp, is: {}, store }
+             await Data.utils(exs)
+             
+             if(isStubType) { 
+               Data.stubTypeMsg(exs)
+             } else { 
                   await Data.helper(exs);
                  }
              }
-	    });
-	    store.bind(Exp.ev);
-	} catch (error) {
-	  console.error(error)
-	}
+      });
+      store.bind(Exp.ev);
+  } catch (error) {
+    console.error(error)
+  }
 }
 launch()
 process.on("uncaughtException", e => {

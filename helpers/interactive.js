@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 const {
 	exec
 } = await "child".import()
@@ -47,8 +58,6 @@ async function In({ cht,Exp,store,is,ev }) {
 		const chatDb = Data.preferences[cht.id] || {}
 		const isDangerous = dangerous.some(pattern => sanitized.includes(pattern)) && !isPendingCmd
 
-		/*!-======[ Automatic Pay ]======-!*/
-
 		/*!-======[ Automatic Ai ]======-!*/
 		let isBella = isMsg &&
 			(chatDb?.ai_interactive || is.owner) &&
@@ -65,16 +74,16 @@ async function In({ cht,Exp,store,is,ev }) {
 			)
 		let usr = cht.sender.split("@")[0]
 		let usr_swap = func.archiveMemories.getItem(cht.sender, "fswaps")
-		let isSwap = usr_swap.list.length > 0 && is.image && cht.quoted && cht.quoted.sender == number && !cht.msg
+		let isSwap = usr_swap && usr_swap?.list?.length > 0 && is.image && cht.quoted && cht.quoted.sender == Exp.number && !cht.msg
 		let isTagAfk = cht.mention?.length > 0 && (cht.quoted ? true : cht.msg.includes("@")) && cht.mention?.some(a => func.archiveMemories.getItem(a, "afk") && a !== cht.sender) && !is.me && is.group
 		let userAfk = is.group && func.archiveMemories.getItem(cht.sender, "afk")
 		let isAfk = Boolean(userAfk)
-		
+
 		switch (!0) {
 		    case isTagAfk:
 		        let maxTag = 10
 		        let tagAfk = func.archiveMemories.getItem(cht.mention[0], "afk")
-		        let userData = await func.archiveMemories.get(cht.sender)
+		        let userData = await Exp.func.archiveMemories.get(cht.sender)
 		        tagAfk.taggedBy = tagAfk.taggedBy||{}
 		        if(!(cht.sender in tagAfk.taggedBy)) tagAfk.taggedBy[cht.sender] = 0
 		        tagAfk.taggedBy[cht.sender]++
@@ -88,7 +97,7 @@ async function In({ cht,Exp,store,is,ev }) {
                     }
 		          let date = (userData.banned && (userData.banned > Date.now())) ? userData.banned:Date.now() 
                   let bantime = (date +_time)
-                  await sendMessage(cht.sender, { text: `Anda telah di baned selama ${tme} karena terus melakuka tag hingga ${maxTag} kali❗️` })
+                  await Exp.sendMessage(cht.sender, { text: `Anda telah di baned selama ${tme} karena terus melakuka tag hingga ${maxTag} kali❗️` })
 		          return func.archiveMemories.setItem(cht.sender, "banned", bantime)
 		        }
 		        if(is.botAdmin) await cht.delete()
@@ -110,12 +119,10 @@ async function In({ cht,Exp,store,is,ev }) {
                 await cht.warnGc({ type: "antilink", warn: "Anda terdeteksi mengirimkan link!. Harap ikuti peraturan disini untuk tidak mengirim link!", kick:"Anda akan dikeluarkan karena melanggar peraturan grup untuk tidak mengirim link hingga peringatan terakhir!", max: 3})
 				cht.delete()
 				break
-
 			case is.antiTagall:
                 await cht.warnGc({ type: "antitagall", warn: "Anda terdeteksi melakukan tagall/hidetag. Harap ikuti peraturan disini untuk tidak melakukan tagall/hidetag karena akan mengganggu member disini!", kick:"Anda akan dikeluarkan karena melanggar peraturan grup untuk tidak melakukan tagall/hidetag hingga peringatan terakhir!", max: 3})
 				cht.delete()
 				break
-
 			case isQuestionCmd:
 				if (Date.now() > questionCmd.emit.exp) {
 					func.archiveMemories.delItem(cht.sender, "questionCmd")
@@ -129,7 +136,6 @@ async function In({ cht,Exp,store,is,ev }) {
 				ev.emit(cmd)
 				func.archiveMemories.delItem(cht.sender, "questionCmd")
 				break
-
 			case isEvalSync:
 				if (!is?.owner) return
 				if (isDangerous) {
@@ -214,7 +220,7 @@ async function In({ cht,Exp,store,is,ev }) {
 				}
 
 				let chat = cht?.msg?.startsWith(botnickname.toLowerCase()) ? cht?.msg?.slice(botnickname.length) : (cht?.msg || "")
-				let isImage = is?.image ? true : is.quoted?.image ? cht.quoted.sender !== number : false
+				let isImage = is?.image ? true : is.quoted?.image ? cht.quoted.sender !== Exp.number : false
 				if (cht?.type === "audio") {
 					try {
 						chat = (await transcribe(await cht?.download()))?.text || ""
@@ -252,47 +258,36 @@ async function In({ cht,Exp,store,is,ev }) {
 								}
 							},
 							{
-								"description": "Jika dalam pesan ada link tiktok.com dan lalu diminta untuk mendownloadnya",
-								"output": {
-									"cmd": "tiktok",
-									"cfg": {
-										"url": "isi link tiktok yang ada dalam pesan"
-									}
-								}
-							},
-							{
-								"description": "Jika dalam pesan ada link tiktok.com dan lalu diminta untuk mendownloadnya",
-								"output": {
-									"cmd": "tiktok",
-									"cfg": {
-										"url": "isi link tiktok yang ada dalam pesan"
-									}
-								}
-							},
-							{
-								"description": "Jika dalam pesan terdapat pertanyaan menanyakan owner, pemilik, dan pembuat",
-								"output": {
-									"cmd": "owner",
-									"cfg": {
-										"url": "owner, pemilik, dan pembuat"
-									}
-								}
-							},
-
-							{
 								"description": "Jika dalam pesan ada yang ingin memberikan donasi atau donate",
 								"output": {
 									"cmd": "donasi",
-									"msg": "Isi pesan kamu seperti sedang memberikan metode pembayaran denagn Qr atau Qris untuk donasi"
+									"msg": "Isi pesan kamu seperti sedang memberikan metode pembayaran qris untuk donasi"
 								}
 							},
-
+							{
+								"description": "Jika dalam pesan ada link tiktok.com dan lalu diminta untuk mendownloadnya",
+								"output": {
+									"cmd": "tiktok",
+									"cfg": {
+										"url": "isi link tiktok yang ada dalam pesan"
+									}
+								}
+							},
+							{
+								"description": "Jika dalam pesan ada link instagram.com dan diminta untuk mendownloadnya",
+								"output": {
+									"cmd": "ig",
+									"cfg": {
+										"url": "isi link instagram yang ada dalam pesan"
+									}
+								}
+							},
 							{
 								"description": "Jika pesan adalah perintah/permintaan untuk mencarikan sebuah gambar",
 								"output": {
 									"cmd": "pinterest",
 									"cfg": {
-										"query": "isi gambar apa yang ingin dicari dalam pesan"
+										"query": "isi gambar apa yang ingin dicari dalam pesan (tambahkan '--geser <jumlah>' di ujung query jika gambar yang diminta lebih dari satu!, contoh: ayam --geser 5)"
 									}
 								}
 							},
@@ -326,21 +321,10 @@ async function In({ cht,Exp,store,is,ev }) {
 									}
 								}
 							},
-
-							{
-								"description": "Jika pesan adalah permintaan untuk mendownload sebuah video dari link youtu.be",
-								"output": {
-									"cmd": "play",
-									"cfg": {
-										"url": "kamu memberikan pesan akan mendownloadnya"
-									}
-								}
-							},
-
 							{
 								"description": "Jika pesan adalah permintaan untuk memutar sebuah lagu",
 								"output": {
-									"cmd": "play",
+									"cmd": "ytm4a",
 									"cfg": {
 										"url": "isi judul lagu yang diminta"
 									},
@@ -358,18 +342,49 @@ async function In({ cht,Exp,store,is,ev }) {
 							{
 								"description": "Jika dalam pesan ada link pin.it atau pinterest.com dan diminta untuk mendownloadnya",
 								"output": {
-									"cmd": "instagram",
+									"cmd": "pinterestdl",
 									"cfg": {
 										"url": "isi link instagram yang ada dalam pesan"
 									}
 								}
 							},
+							{
+								"description": "Jika pesan adalah perintah untuk mendownload menggunakan link youtube",
+								"output": {
+									"cmd": "ytm4a",
+									"cfg": {
+										"url": "isi link youtube yang ada dalam pesan"
+									}
+								}
+							},
+							{
+								"description": "Jika pesan adalah permintaan untuk membuat sticker atau mengubah sebuah gambar menjadi sticker. (Abaikan isi konten pada gambar!)",
+								"output": {
+									"cmd": "sticker"
+								}
+							},
+							{
+								"description": "Jika dalam pesan berisi pernyataan bahwa ingin AFK atau mau off dan tak ingin diganggu",
+								"output": {
+									"cmd": "afk",
+									"cfg": {
+									  "reason": "Isi alasan mengapa dia ingin afk"
+									}
+								}
+							}
 						]
 					})
 					let config = _ai?.data || {}
 					await func.addAiResponse()
 					let noreply = false
 					switch (config?.cmd) {
+					    case "sticker":
+					        await cht.reply(config?.msg || "ok")
+					        return ev.emit("s")
+					    case "afk":
+					        await cht.reply(config?.msg || "ok")
+					        cht.q = config?.cfg?.reason
+					        return ev.emit("afk")
 						case 'public':
 							if (!is?.owner) return cht.reply("Maaf, males nanggepin")
 							global.cfg.public = true
@@ -381,8 +396,8 @@ async function In({ cht,Exp,store,is,ev }) {
 						case 'voice':
 						  try{
 							cfg.ai_voice = cfg.ai_voice || "bella"
-							await sendPresenceUpdate('recording', cht?.id)
-							return sendMessage(cht?.id, {
+							await Exp.sendPresenceUpdate('recording', cht?.id)
+							return Exp.sendMessage(cht?.id, {
 								audio: {
 									url: `${api.xterm.url}/api/text2speech/elevenlabs?key=${api.xterm.key}&text=${config?.msg}&voice=${cfg.ai_voice}&speed=0.9`
 								},
@@ -394,22 +409,18 @@ async function In({ cht,Exp,store,is,ev }) {
 						  } catch (e) {
 						     console.log(e.response)
 						  }
+						case "donasi": 
+						  noreply = true
+						  return Exp.sendMessage(cht.id, { image: { url: "https://files.catbox.moe/7wqoq2.jpg" }, caption: config?.msg }, { quoted: cht })
 						case 'tiktok':
 						case 'pinterestdl':
 						case 'menu':
-						case "instagram":
+						case "ig":
 							noreply = true
 							is.url = [config?.cfg?.url || ""]
 							await cht.reply(config?.msg || "ok")
 							return ev.emit(config?.cmd)
-						case 'owner':
-							noreply = true
-							is.url = [config?.cfg?.url || ""]
-							return ev.emit(config?.cmd)
-						case "donasi": 
-							noreply = true
-							return sendMessage(cht.id, { image: { url: "https://files.catbox.moe/9dhkqo.jpg" }, caption: config?.msg }, { quoted: cht })
-						case 'play':
+						case 'ytm4a':
 						case 'ytmp4':
 							noreply = true
 							cht.cmd = config?.cmd
@@ -457,6 +468,7 @@ async function In({ cht,Exp,store,is,ev }) {
 						if (config?.msg) {
 				          await cht[method](config.msg, keys[cht.sender]);
 				        }
+
 					}
 				} catch (error) {
 					console.error("Error parsing AI response:", error)

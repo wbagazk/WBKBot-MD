@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 async function musixSearch(buffer) {
   try {
     let response = await fetch(`${api.xterm.url}/api/audioProcessing/whatmusic?key=${api.xterm.key}`, {

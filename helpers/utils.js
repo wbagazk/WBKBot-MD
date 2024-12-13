@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 const { getContentType } = "baileys".import()
 
 export default 
@@ -60,27 +71,27 @@ async function utils({ Exp, cht, is, store }) {
 
         cht[cht.type] = cht?.message?.[type]
 
-		if(cht.type == "reactionMessage"){
-		  let react = await store.loadMessage(cht.id, cht[cht.type].key.id)
-		  let rtype = getContentType(react?.message)
-		  let mtype = Exp.func['getType'](rtype)
-		  let rtext = rtype == "conversation" ? react.message[rtype]
+    if(cht.type == "reactionMessage"){
+      let react = await store.loadMessage(cht.id, cht[cht.type].key.id)
+      let rtype = getContentType(react?.message)
+      let mtype = Exp.func['getType'](rtype)
+      let rtext = rtype == "conversation" ? react.message[rtype]
               : rtype === 'extendedTextMessage' ? react.message[rtype]?.text
               : (rtype === 'imageMessage' || rtype === 'videoMessage') ? react.message[rtype]?.caption 
               : (type === "interactiveResponseMessage") ? JSON.parse(react?.message?.[rtype]?.nativeFlowResponseMessage?.paramsJson)?.id : null
-		  cht.reaction = {
-		    key: cht[cht.type]?.key,
-		    emoji: cht[cht.type]?.text,
-		    mtype,
-		    text: rtext,
-		    url: rtext?.match(/https?:\/\/[^\s]+/g)?.flatMap(url => url.match(/https?:\/\/[^\s)]+/g) || []) ?? [],
-		    mention: await Exp.func['getSender'](react?.participant || react?.key?.participant || react?.key?.remoteJid ),
+      cht.reaction = {
+        key: cht[cht.type]?.key,
+        emoji: cht[cht.type]?.text,
+        mtype,
+        text: rtext,
+        url: rtext?.match(/https?:\/\/[^\s]+/g)?.flatMap(url => url.match(/https?:\/\/[^\s)]+/g) || []) ?? [],
+        mention: await Exp.func['getSender'](react?.participant || react?.key?.participant || react?.key?.remoteJid ),
             download: async () => Exp.func.download(react?.message?.[rtype], mtype),
             delete: async () => Exp.sendMessage(cht.id, { delete: cht[cht.type]?.key }),
-		  }
-		  cht.reaction[mtype] = react?.message?.[rtype]
-		}
-		
+      }
+      cht.reaction[mtype] = react?.message?.[rtype]
+    }
+    
         if (cht.quoted) {
             const quotedParticipant = cht?.message?.[type]?.contextInfo?.participant
             cht.quoted.sender = await Exp.func['getSender'](quotedParticipant)
@@ -113,7 +124,7 @@ async function utils({ Exp, cht, is, store }) {
         is.group = cht.id?.endsWith(from.group)
         is.me = cht?.key?.fromMe
         is.owner =  global.owner.some(a => { const jid = a?.split("@")[0]?.replace(/[^0-9]/g, ''); return jid && (jid + from.sender === cht.sender) }) || is.me
-		const groupDb = is.group ? Data.preferences[cht.id] : {}
+    const groupDb = is.group ? Data.preferences[cht.id] : {}
 
         is.baileys = /^(3EB|BAE5|BELL409|B1E)/.test(cht.key.id)
         is.botMention = cht?.mention?.includes(Exp.number)
@@ -123,7 +134,7 @@ async function utils({ Exp, cht, is, store }) {
         is.image = cht.type === "image"
         is.video = cht.type === "video"
         is.document = cht.type === "document"
-        is.url = cht?.msg?.match(/(https?:\/\/)?[^\s]+\.(com|watch|net|org|xyz|id|co|io|ru|uk|kg|gov|edu|dev|tech|codes|ai|shop|me|info|online|store|biz|pro|aka)(\/[^\s]*)?/gi)?.map(a => !a?.startsWith('http') ?  'https://'+a:a) || []
+        is.url = cht?.msg?.match(/(https?:\/\/)?[^\s]+\.(com|watch|net|org|it|xyz|id|co|io|ru|uk|kg|gov|edu|dev|tech|codes|ai|shop|me|info|online|store|biz|pro|aka)(\/[^\s]*)?/gi)?.map(a => !a?.startsWith('http') ?  'https://'+a:a) || []
         is.mute = groupDb?.mute && !is.owner && !is.me
         is.antiTagall = groupDb?.antitagall && (cht.mention?.length >= 5) && !is.owner
 
@@ -136,8 +147,8 @@ async function utils({ Exp, cht, is, store }) {
             is.botAdmin = Exp.groupAdmins.includes(Exp.number)
             is.groupAdmins = Exp.groupAdmins.includes(cht.sender)
         }
-	    is.antibot = groupDb?.antibot && !is.owner && !is.admin && is.baileys && is.botAdmin
-        is.antilink = groupDb?.antilink && (is.url.length > 0) && is.url.some(a => groupDb?.links?.some(b => a.includes(b))) && !is.me && !is.owner && !is.admin && is.botAdmin
+      is.antibot = groupDb?.antibot && !is.owner && !is.groupAdmins && is.baileys && is.botAdmin
+        is.antilink = groupDb?.antilink && (is.url.length > 0) && is.url.some(a => groupDb?.links?.some(b => a.includes(b))) && !is.me && !is.owner && !is.groupAdmins && is.botAdmin
 
         is.memories = cht.memories
         is.quoted = cht.quoted
@@ -154,8 +165,8 @@ async function utils({ Exp, cht, is, store }) {
                message: {
                 conversation: cht.reaction.emoji,
                }
-	   		  } : cht
-	   		}
+          } : cht
+        }
               
             const { key } = await Exp.sendMessage(cht.id, { text, ...etc }, quoted)
             keys[cht.sender] = key

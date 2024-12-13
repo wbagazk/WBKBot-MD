@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const fs = "fs".import()
 
@@ -52,7 +63,7 @@ export default async function on({
 
 	ev.on({
 		cmd: ['smeme', 'stickermeme', 'stikermeme'],
-		listmenu: [],
+		listmenu: ['smeme'],
 		tag: "maker",
 		args: `Example: ${cht.msg} teks1|teks2`,
 		energy: 7,
@@ -188,7 +199,7 @@ export default async function on({
 			})
 		});
 	})
-    
+	
 	ev.on({
 		cmd: ['brat', 'bart', 'bratgenerator'],
 		listmenu: ['brat'],
@@ -197,8 +208,8 @@ export default async function on({
 	}, async () => {
         let buff = await func.getBuffer(`https://siputzx-bart.hf.space/?q=${encodeURIComponent(cht.q)}`)
 		let res = await exif["writeExifImg"](buff, {
-			packname: 'My Brat Sticker',
-			author: 'ⒸWBK BOT'
+			packname: 'My brat sticker',
+			author: 'Ⓒ' + cht.pushName
 		})
 		Exp.sendMessage(id, {
 			sticker: {
@@ -208,5 +219,4 @@ export default async function on({
 			quoted: cht
 		})
 	})
-
 }

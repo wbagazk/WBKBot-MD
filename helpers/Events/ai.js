@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const axios = "axios".import()
 const fs = "fs".import()
@@ -77,9 +88,9 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
      if (!text1 || !text2) return cht.reply(`${infos.ai.payInstruction}\n ${infos.ai.lora}`)
         await cht.edit(infos.messages.wait, keys[sender])
         await Exp.sendMessage(id, { image: { url: api.xterm.url + "/api/text2img/instant-lora?id="+text1+"&prompt="+text2 + "&key=" + api.xterm.key }, caption: infos.ai.lora_models[parseInt(text1) - 1]}, { quoted: cht })
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['imglarger','enlarger','enlarge','filters','filter','toanime','jadianime','jadinyata','toreal'],
         listmenu: ['toanime','filters','toreal'],
         tag: 'art',
@@ -124,10 +135,10 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
         console.error(e)
         cht.reply(`Type-Err! :\n${e}`)
      }
-	
-	})
-	
-	ev.on({
+    
+    })
+    
+    ev.on({
         cmd: ['txt2img', 'text2img'],
         listmenu: ['text2img'],
         tag: 'stablediffusion',
@@ -211,7 +222,6 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
             }
 
             let s = await sResponse.json()
-
             if (i === Data.spinner.length) i = 0
             if (s.taskStatus === 0) {
                 await cht.edit(`${Data.spinner[i++]} \`\`\`Starting..\`\`\``, _key, true)
@@ -235,7 +245,7 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
         cmd: ['lorasearch','checkpointsearch'],
         listmenu: ['lorasearch','checkpointsearch'],
         tag: 'stablediffusion',
-	    energy: 3
+        energy: 3
     }, async() => {
         if(!cht.q) return cht.reply("Mau cari model apa?")
         fetch(`${api.xterm.url}/api/text2img/stablediffusion/list_${cht.cmd == "lorasearch" ? "loras" : "checkpoints"}?key=${api.xterm.key}`)
@@ -253,13 +263,13 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
                    cht.reply(txt)
                 })
             })
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['getlora','getcheckpoint'],
         listmenu: ['getlora','getcheckpoint'],
         tag: 'stablediffusion',
-	    energy: 3
+        energy: 3
     }, async() => {
         if(!cht.q) return cht.reply("Harap masukan id nya!")
         if(isNaN(cht.q)) return cht.reply("Id harus berupa angka!")
@@ -273,26 +283,11 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
                     cht.reply(infos.ai.notfound)
                 }
             })
-	})
-	
+    })
+    
     ev.on({ 
-        cmd: ['dalle3'],
-        listmenu: ['dalle3 (AI Gambar)'],
-        tag: 'ai',
-        args: infos.ai.isPrompt,
-        energy: 17,
-        badword: true
-    }, async() => {
-    let [text1, text2] = cht.q ? cht.q.split("|") : []
-        await cht.edit(infos.messages.wait, keys[sender])
-        await Exp.sendMessage(id, { image: { url: api.xterm.url + "/api/text2img/dalle3?prompt="+text1 + "&key=" + api.xterm.key + ( text2 ? "&prompt="+text2 : "") } }, { quoted: cht })
-        let failed = Exp.sendMessage
-        console.log(failed)
-	})
-
-	ev.on({ 
         cmd: ['luma','img2video'], 
-        listmenu: ['luma (AI Video)'],
+        listmenu: ['luma'],
         tag: "ai",
         energy: 185,
         premium: true,
@@ -309,7 +304,7 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
             })
              let rsp = "rfz"
              let i = 0
-             response.data.on('data', async (chunk) => {
+            response.data.on('data', async (chunk) => {
                 try {
                     const eventString = chunk.toString()
                     const eventData = eventString.match(/data: (.+)/)
@@ -350,102 +345,32 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
     })
     
     ev.on({ 
-        cmd: ['songai','songgenerator','laguai'],
-        listmenu: ['laguai (AI Lagu)'],
-        tag: 'ai',
-        energy: 70,
-        premium: true,
-        args: infos.ai.prompt
-    }, async({ media }) => {
-        const _key = keys[sender]
-        const prompt = cht.q
-        await cht.edit(infos.messages.wait, _key, true)
-        axios({
-                method: 'post',
-                url: `${api.xterm.url}/api/audioProcessing/song-generator`,  
-                params: { prompt, key: api.xterm.key },
-                responseType: 'stream'
-         })
-         .then(response => {
-           response.data.on('data', async chunk => {
-             const eventString = chunk.toString()
-             const eventData = eventString.match(/data: (.+)/)
-        
-             if (eventData) {
-                 const data = JSON.parse(eventData[1])
-                 switch (data.status){
-                     case 'queueing':
-                     case 'generating':
-                         cht.edit(data.msg, _key, true)
-                     break
-                     case 'success':
-                       const audio = {
-                         text: data.result.lyrics,
-                         contextInfo: { 
-                             externalAdReply: {
-                                 title: prompt,
-                                 body: data.result.tags,
-                                 thumbnailUrl: data.result.imageUrl,
-                                 sourceUrl: "https://wbagazk.my.id/",
-                                 mediaUrl: `http://ẉa.me/6282131282262/${Math.floor(Math.random() * 100000000000000000)}`,
-                                 renderLargerThumbnail: true,
-                                 showAdAttribution: true,
-                                 mediaType: 1,
-                             },
-                             forwardingScore: 999,
-                             isForwarded: true,
-                             forwardedNewsletterMessageInfo: {
-                                 newsletterJid: "120363369378768979@newsletter",
-                                 serverMessageId: 152
-                             }
-                         }
-                       }
-                       await Exp.sendMessage(id, audio, { quoted: cht })
-                       await Exp.sendMessage(id, { audio: { url: data.result.audioUrl }, mimetype:"audio/mp4" }, { quoted: cht })
-                       response.data.destroy()
-                     break
-                     case 'failed':
-                         cht.reply(infos.messages.failed)
-                         response.data.destroy() 
-                     break
-                 }
-             }
-           })
-         })
-         .catch(error => {
-             console.log(error)
-             cht.edit('Error:'+error.response ? error.response.data : error.message, _key)
-         })
-    })
-
-    ev.on({ 
         cmd: ['bard','ai'],
         tag: "ai",
         args: infos.ai.isQuery,
-        listmenu: [],
+        listmenu: ["bard"],
         energy: 7
     }, async() => {
         let ai = await fetch(`${api.xterm.url}/api/chat/bard?query=${encodeURIComponent(cht.q)}&key=${api.xterm.key}`)
         .then(response => response.json())
-
+       
         cht.reply("[ BARD GOOGLE ]\n"+ai.chatUi)
-	})
-
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['gpt','gpt3'],
         tag: "ai",
         args: infos.ai.isQuery,
-        listmenu: [],
+        listmenu: ["gpt3"],
         energy: 7
     }, async() => {
         let res = await gpt(cht.q)
-        cht.reply("[ ChatGPT by WBK ]\n"+res.response)
-	})
-	
+        cht.reply("[ GPT-3 ]\n"+res.response)
+    })
+    
     ev.on({ 
-        cmd: ['wbk', 'autoai', 'aichat', 'ai_interactive'],
+        cmd: ['bell', 'autoai', 'aichat', 'ai_interactive'],
         tag: "ai",
-        energy: 44,
         listmenu: ["autoai"]
     }, async () => {
         function sendAiInfo(){
@@ -453,12 +378,12 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
             text: infos.ai.bell,
             contextInfo: { 
                 externalAdReply: {
-                    title: "Hai Kak" + cht.pushName + " 👋🏽",
-                    body: "WBK BOT is Artificial Intelligence",
+                    title: cht.pushName,
+                    body: "Artificial Intelligence, The beginning of the robot era",
                     thumbnailUrl: "https://telegra.ph/file/e072d1b7d5fe75221a36c.jpg",
-                    sourceUrl: "https://wbagazk.my.id/",
-                    mediaUrl: `http://ẉa.me/62821282262/9992828`,
-                    renderLargerThumbnail: false,
+                    sourceUrl: "https://github.com/Rifza123",
+                    mediaUrl: `http://ẉa.me/6283110928302/9992828`,
+                    renderLargerThumbnail: true,
                     showAdAttribution: true,
                     mediaType: 1,
                 }
@@ -557,17 +482,17 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
         cht.reply(set.done)
     })
     
-	ev.on({ 
-        cmd: ['resetaichat','clearsesichat','resetautoai'],
+    ev.on({ 
+        cmd: ['resetaichat','clearsesichat'],
         tag: "ai",
-        listmenu: ["resetautoai"]
+        listmenu: ["resetaichat"]
     }, async() => {
         let ai = await fetch(`${api.xterm.url}/api/chat/logic-bell/reset?id=${cht.sender}&key=${api.xterm.key}`)
         .then(response => response.json())
         cht.reply(ai.msg)
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['animediff'],
         listmenu: ['animediff'],
         tag: 'stablediffusion',
@@ -577,11 +502,24 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
     let [text1, text2] = cht.q ? cht.q.split("|") : []
         await cht.edit(infos.messages.wait, keys[sender])
         await Exp.sendMessage(id, { image: { url: api.xterm.url + "/api/text2img/animediff?prompt="+text1 + "&key=" + api.xterm.key + ( text2 ? "&prompt="+text2 : "") } }, { quoted: cht })
-	})
-	
+    })
+    
+    ev.on({ 
+        cmd: ['dalle3'],
+        listmenu: ['dalle3'],
+        tag: 'art',
+        args: infos.ai.isPrompt,
+        energy: 17,
+        badword: true
+    }, async() => {
+    let [text1, text2] = cht.q ? cht.q.split("|") : []
+        await cht.edit(infos.messages.wait, keys[sender])
+        await Exp.sendMessage(id, { image: { url: api.xterm.url + "/api/text2img/dalle3?prompt="+text1 + "&key=" + api.xterm.key + ( text2 ? "&prompt="+text2 : "") } }, { quoted: cht })
+    })
+    
     ev.on({ 
         cmd: ['geminiimage','geminiimg'], 
-        listmenu: [],
+        listmenu: ['geminiimage'],
         tag: "ai",
         energy: 20,
         args: infos.ai.isQuery,
@@ -591,6 +529,75 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
     }, async({ media }) => {
         let res = await GeminiImage(media, cht.q)
         cht.reply(res)
+    })
+    
+    ev.on({ 
+        cmd: ['songai','songgenerator'],
+        listmenu: ['songgenerator'],
+        tag: 'ai',
+        energy: 70,
+        premium: true,
+        args: infos.ai.prompt
+    }, async({ media }) => {
+        const _key = keys[sender]
+        const prompt = cht.q
+        await cht.edit(infos.messages.wait, _key, true)
+        axios({
+                method: 'post',
+                url: `${api.xterm.url}/api/audioProcessing/song-generator`,  
+                params: { prompt, key: api.xterm.key },
+                responseType: 'stream'
+         })
+         .then(response => {
+           response.data.on('data', async chunk => {
+             const eventString = chunk.toString()
+             const eventData = eventString.match(/data: (.+)/)
+        
+             if (eventData) {
+                 const data = JSON.parse(eventData[1])
+                 switch (data.status){
+                     case 'queueing':
+                     case 'generating':
+                         cht.edit(data.msg, _key, true)
+                     break
+                     case 'success':
+                       const audio = {
+                         text: data.result.lyrics,
+                         contextInfo: { 
+                             externalAdReply: {
+                                 title: prompt,
+                                 body: data.result.tags,
+                                 thumbnailUrl: data.result.imageUrl,
+                                 sourceUrl: "https://github.com/Rifza123",
+                                 mediaUrl: `http://ẉa.me/6283110928302/${Math.floor(Math.random() * 100000000000000000)}`,
+                                 renderLargerThumbnail: true,
+                                 showAdAttribution: true,
+                                 mediaType: 1,
+                             },
+                             forwardingScore: 999,
+                             isForwarded: true,
+                             forwardedNewsletterMessageInfo: {
+                                 newsletterJid: "120363301254798220@newsletter",
+                                 serverMessageId: 152
+                             }
+                         }
+                       }
+                       await Exp.sendMessage(id, audio, { quoted: cht })
+                       await Exp.sendMessage(id, { audio: { url: data.result.audioUrl }, mimetype:"audio/mp4" }, { quoted: cht })
+                       response.data.destroy()
+                     break
+                     case 'failed':
+                         cht.reply(infos.messages.failed)
+                         response.data.destroy() 
+                     break
+                 }
+             }
+           })
+         })
+         .catch(error => {
+             console.log(error)
+             cht.edit('Error:'+error.response ? error.response.data : error.message, _key)
+         })
     })
     
     ev.on({ 
@@ -670,7 +677,10 @@ export default async function on({ Exp, ev, store, cht, ai, is }) {
     })
     
     ev.on({ 
-        cmd: ['faceswap-reset','faceswap-change'],
+        cmd: [
+          'faceswap-reset',
+          'faceswap-change',
+        ],
         listmenu: ['faceswap-reset', 'faceswap-change'],
         tag: 'ai',
         premium: true,

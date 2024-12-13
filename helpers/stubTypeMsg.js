@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 const { WAMessageStubType: StubType } = "baileys".import()
 let infos = Data.infos
 
@@ -38,16 +49,16 @@ ${group.desc}`:"")
                     title: "Hai "+ newMember.map(a => Exp.func.getName(a)).join(", "),
                     body: `Selamat datang di group ${group.subject}`,
                     thumbnailUrl: pp,
-                    sourceUrl: "https://wbagazk.my.id/",
+                    sourceUrl: "https://github.com/Rifza123",
                     mediaUrl: `http://ẉa.me/6283110928302/${Math.floor(Math.random() * 100000000000000000)}`,
                     renderLargerThumbnail: true,
                     showAdAttribution: true,
                     mediaType: 1,
                 },
-                forwardingScore: 999999,
+                forwardingScore: 19,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363369378768979@newsletter",
+                    newsletterJid: "120363301254798220@newsletter",
                     serverMessageId: 152
                 },
                 mentionedJid: newMember
@@ -71,7 +82,7 @@ ${group.desc}`:"")
              "ItemCount": 0,
              "message": `Hai ${members}`,
              "totalCurrencyCode": `Selamat datang di group ${group.subject}`,
-             "sellerJid": "6285183352262@s.whatsapp.net",
+             "sellerJid": "6281374955605@s.whatsapp.net",
              "token": "AR6oiV5cQjZsGfjvfDwl0DXfnAE+OPRkWAQtFDaB9wxPlQ==",
              "thumbnail": (await Buffer.from(await fetch(pp).then(a => a.arrayBuffer())).toString("base64")),
            }
@@ -85,11 +96,11 @@ ${group.desc}`:"")
               "productId": "8080277038663215",
               "title": `Hai ${members}`,
               "description": `Hai ${members}`,
-              "currencyCode": "WBK",
+              "currencyCode": "TERMAI",
               "priceAmount1000": `Selamat datang di group ${group.subject}`,
               "productImageCount": 8
             },
-            "businessOwnerJid": "6285183352262@s.whatsapp.net",
+            "businessOwnerJid": "6281374955605@s.whatsapp.net",
               "contextInfo": {
                 "expiration": 86400,
                 "ephemeralSettingTimestamp": "1723572108",
@@ -110,7 +121,7 @@ ${group.desc}`:"")
                     title: "Hai "+ newMember.map(a => Exp.func.getName(a)).join(", "),
                     body: `Selamat datang di group ${group.subject}`,
                     thumbnailUrl: pp,
-                    sourceUrl: "https://wbagazk.my.id//",
+                    sourceUrl: "https://github.com/Rifza123",
                     mediaUrl: `http://ẉa.me/6283110928302/${Math.floor(Math.random() * 100000000000000000)}`,
                     renderLargerThumbnail: true,
                     showAdAttribution: true,
@@ -119,7 +130,7 @@ ${group.desc}`:"")
                 forwardingScore: 19,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363369378768979@newsletter",
+                    newsletterJid: "120363301254798220@newsletter",
                     serverMessageId: 152
                 }
             }
@@ -156,10 +167,10 @@ Selamat tinggal ${members}`
             text,
             contextInfo: { 
                 externalAdReply: {
-                    title: "Byee... "+ oldMember.map(a => Exp.func.getName(a)).join(", "),
+                    title: "Byee "+ oldMember.map(a => Exp.func.getName(a)).join(", "),
                     body: `Selamat tinggal dari group ${group.subject}`,
                     thumbnailUrl: pp,
-                    sourceUrl: "https://wbagazk.my.id/",
+                    sourceUrl: "https://github.com/Rifza123",
                     mediaUrl: `http://ẉa.me/6283110928302/${Math.floor(Math.random() * 100000000000000000)}`,
                     renderLargerThumbnail: true,
                     showAdAttribution: true,
@@ -168,7 +179,7 @@ Selamat tinggal ${members}`
                 forwardingScore: 19,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363369378768979@newsletter",
+                    newsletterJid: "120363301254798220@newsletter",
                     serverMessageId: 152
                 },
                 mentionedJid: oldMember
@@ -192,7 +203,7 @@ Selamat tinggal ${members}`
           "ItemCount": 0,
           "message": `Byee ${members}`,
           "totalCurrencyCode": `Selamat tinggal dari group ${group.subject}`,
-          "sellerJid": "6285183352262@s.whatsapp.net",
+          "sellerJid": "6281374955605@s.whatsapp.net",
           "token": "AR6oiV5cQjZsGfjvfDwl0DXfnAE+OPRkWAQtFDaB9wxPlQ==",
           "thumbnail": (await Buffer.from(await fetch(pp).then(a => a.arrayBuffer())).toString("base64")),
          }
@@ -206,11 +217,11 @@ Selamat tinggal ${members}`
               "productId": "8080277038663215",
               "title": `Hai ${members}`,
               "description": `Byee ${members}`,
-              "currencyCode": "WBK",
+              "currencyCode": "TERMAI",
               "priceAmount1000": `Selamat tinggal dari group ${group.subject}`,
               "productImageCount": 8
             },
-            "businessOwnerJid": "6285183352262@s.whatsapp.net",
+            "businessOwnerJid": "6281374955605@s.whatsapp.net",
               "contextInfo": {
                 "expiration": 86400,
                 "ephemeralSettingTimestamp": "1723572108",
@@ -231,7 +242,7 @@ Selamat tinggal ${members}`
                     title: "Byee "+ oldMember.map(a => Exp.func.getName(a)).join(", "),
                     body: `Selamat tinggal dari group ${group.subject}`,
                     thumbnailUrl: pp,
-                    sourceUrl: "https://wbagazk.my.id/",
+                    sourceUrl: "https://github.com/Rifza123",
                     mediaUrl: `http://ẉa.me/6283110928302/${Math.floor(Math.random() * 100000000000000000)}`,
                     renderLargerThumbnail: true,
                     showAdAttribution: true,
@@ -240,7 +251,7 @@ Selamat tinggal ${members}`
                 forwardingScore: 19,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363369378768979@newsletter",
+                    newsletterJid: "120363301254798220@newsletter",
                     serverMessageId: 152
                 }
             }

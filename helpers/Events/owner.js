@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const fs = "fs".import()
 const path = "path".import()
@@ -49,7 +60,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['set'], 
-        listmenu: [],
+        listmenu: ['set'],
         tag: "owner",
         isOwner: true,
         args: infos.owner.set
@@ -172,7 +183,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['setthumb'], 
-        listmenu: [],
+        listmenu: ['setthumb'],
         media: {
             type: ["image"],
             save: false
@@ -186,7 +197,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['setpp'], 
-        listmenu: [],
+        listmenu: ['setpp'],
         media: {
             type: ["image"],
             save: false
@@ -201,7 +212,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     })
     
     ev.on({ 
-        cmd: [], 
+        cmd: ['badword'], 
         listmenu: ['badword'],
         args: func.tagReplacer(infos.owner.badword, { cmd: cht.prefix + cht.cmd }),
         isOwner: true,
@@ -233,7 +244,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['getdata'], 
-        listmenu: [],
+        listmenu: ['getdata'],
         isOwner: true,
         tag: "owner"
     }, async ({ media }) => {
@@ -252,7 +263,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['deldata'], 
-        listmenu: [],
+        listmenu: ['deldata'],
         isOwner: true,
         tag: "owner"
     }, async ({ media }) => {
@@ -282,7 +293,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     })
     
     ev.on({ 
-        cmd: [], 
+        cmd: ['setdata'], 
         listmenu: ['setdata'],
         isOwner: true,
         tag: "owner"
@@ -348,7 +359,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['addenergy','kurangenergy'],
-        listmenu: [],
+        listmenu: ['addenergy','kurangenergy'],
         args: infos.about.energy,
         tag: 'owner',
         isMention: infos.about.energy,
@@ -385,13 +396,94 @@ export default async function on({ cht, Exp, store, ev, is }) {
             txt += "\n- Charging Speed: ⚡" + rate + " Energy/" + speed
             txt += "\n- Max Charge: " + max
         Exp.sendMessage(cht.id, { text: txt, mentions: cht.mention }, { quoted: cht })
-	})
-	
-
+  })
+  
+    ev.on({ 
+        cmd: ['premium','addpremium','addprem','delpremium','delprem','kurangpremium','kurangprem'],
+        listmenu: ['premium'],
+        tag: 'owner'
+    }, async({ cht }) => {
+        let isOwnerAccess = cht.cmd !== "premium";
+        let text = isOwnerAccess ? infos.owner.premium_add : "";
+        let trial = Data.users[cht.sender.split("@")[0]]?.claimPremTrial
+        if (!isOwnerAccess) return sendPremInfo({ text:infos.messages.premium(trial) });
+        if (!is.owner) return cht.reply("Maaf, males nanggepin")
+        if (cht.mention.length < 1) return sendPremInfo({ text });
+        if(!cht.quoted && !cht.q.includes("|")) return sendPremInfo({ _text: infos.owner.wrongFormat, text });
+        let time = (cht.q ? cht.q.split("|")[1] : false) || cht.q || false;
+        if (!time) return sendPremInfo({ text });
+        let sender = cht.mention[0].split("@")[0];
+        if (!(sender in Data.users)) return cht.reply(infos.owner.userNotfound);
+        let user = await func.archiveMemories.get(cht.mention[0])
+        if (["kurangprem","kurangpremium","delprem","delpremium"].includes(cht.cmd) && user.premium.time < Date.now()) {
+            return cht.reply("Maaf, target bukan user premium!");
+        }
+        let premiumTime = func.parseTimeString(time);
+        if (!premiumTime && !["delprem", "delpremium"].includes(cht.cmd)) {
+            return sendPremInfo({ _text: infos.owner.wrongFormat, text });
+        }
+        if (!("premium" in user)) {
+            user.premium = { time: 0 };
+        }
+        let date = user.premium.time < Date.now() ? Date.now() : user.premium.time;
+        let formatDur = func.formatDuration(premiumTime || 0)
+        let opts = {
+            addpremium: {
+                time: parseFloat(date) + parseFloat(premiumTime),
+                msg:  `*Successfully increased premium duration! ✅️*\n ▪︎ User:\n- @${sender}\n ▪︎ Waktu ditambahkan: \n- ${formatDur.days}hari ${formatDur.hours}jam ${formatDur.minutes}menit ${formatDur.seconds}detik ${formatDur.milliseconds}ms\n\n`
+            },
+            addprem: {
+                time: parseFloat(date) + parseFloat(premiumTime),
+                msg:  `*Successfully increased premium duration✅️*\n ▪︎ User:\n- @${sender}\n ▪︎ Waktu ditambahkan: \n- ${formatDur.days}hari ${formatDur.hours}jam ${formatDur.minutes}menit ${formatDur.seconds}detik ${formatDur.milliseconds}ms\n\n`
+            },
+            kurangpremium: {
+                time: parseFloat(date) - parseFloat(premiumTime),
+                msg:  `*Successfully reduced premium duration✅️*\n ▪︎ User:\n- @${sender}\n ▪︎ Waktu dikurangi: \n- ${formatDur.days}hari ${formatDur.hours}jam ${formatDur.minutes}menit ${formatDur.seconds}detik ${formatDur.milliseconds}ms\n\n`
+            },
+            kurangprem: {
+                time: parseFloat(date) - parseFloat(premiumTime),
+                msg:  `*Successfully reduced premium duration!✅️*\n ▪︎ User:\n- @${sender}\n ▪︎ Waktu dikurangi: \n- ${formatDur.days}hari ${formatDur.hours}jam ${formatDur.minutes}menit ${formatDur.seconds}detik ${formatDur.milliseconds}ms\n\n`
+            },
+            delpremium: { 
+                time:0,
+                msg: `*Successfully delete user @${sender} from premium✅️*\n\n`
+            },
+            delprem: {
+                time:0,
+                msg: `*Successfully delete user @${sender} from premium✅️\n\n`
+            }
+        }
+        if(premiumTime > 315360000000) return cht.reply("Maksimal waktu adalah 10 tahun!")
+        user.premium.time = opts[cht.cmd].time
+        if(cht.cmd.includes("delprem")) user.premium = { time:0 }
+        let formatTimeDur = func.formatDuration(user.premium.time - Date.now())
+        let claim = cfg.first.trialPrem
+        let claims = Object.keys(claim)
+        let prm = user.premium
+        
+        let txt = opts[cht.cmd].msg
+            txt += `🔑Premium: ${user.premium.time >= Date.now() ? "yes":"no"}`
+            if(user.premium.time >= Date.now()){
+              user.premium = { ...claim, ...prm }
+              let txc = "\n\n*🎁Bonus `(Berlaku selama premium)`*"
+              for(let i of claims){
+                  txc += `\n- ${i}: +${claim[i]}`
+              }
+              txt += `\n⏱️Expired after: ${formatTimeDur.days}hari ${formatTimeDur.hours}jam ${formatTimeDur.minutes}menit ${formatTimeDur.seconds}detik ${formatTimeDur.milliseconds}ms`
+              txt += `\n🗓️Expired on: ${func.dateFormatter(user.premium.time, "Asia/Jakarta")}`
+              txt += txc
+            } else {
+              txt += `\n⏱️Expired after: false`
+              txt += `\n🗓️Expired on: false`
+            }
+        Data.users[sender] = user
+        await sendPremInfo({ text:txt }, true)
+        //sendPremInfo({ text:txt }, true, cht.mention[0])
+    })
     
     ev.on({ 
         cmd: ['banned','unbanned'],
-        listmenu: [],
+        listmenu: ['banned','unbanned'],
         tag: 'owner',
         isMention: infos.owner.banned,
         isOwner: true
@@ -426,7 +518,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['cekapikey'], 
-        listmenu: [],
+        listmenu: ['cekapikey'],
         isOwner: true,
         tag: "owner"
     }, async ({ args }) => {
@@ -453,7 +545,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['backup'], 
-        listmenu: [],
+        listmenu: ['backup'],
         isOwner: true,
         tag: "owner"
     }, async ({ args }) => {
@@ -466,27 +558,26 @@ export default async function on({ cht, Exp, store, ev, is }) {
       await cht.reply(`*Proses backup selesai✅️*${is.group ? "\nFile telah dikirimkan melalui chat pribadi" : "" }`)
       fs.unlinkSync(b)
     })
-
+    
     ev.on({ 
-      cmd: ['csesi','clearsesi','clearsession','clearsessi'], 
-      listmenu: [],
-      isOwner: true,
-      tag: "owner"
-  }, async ({ args }) => {
-    await cht.reply("Clearing session...")
-    let sessions = fs.readdirSync(session).filter(a => a !== "creds.json")
-    //const perStep = Math.ceil(sessions.length / 5)
-    for(let i = 0; i < sessions.length; i++){
-      await sleep(250)
-      fs.unlinkSync(session +"/"+ sessions[i])
-      /*
-      if ((i + 1) % perStep === 0 || i + 1 === sessions.length) {
-        const progress = Math.round(((i + 1) / sessions.length) * 100)
-        cht.edit(`Progress: ${progress}%`, keys[cht.sender], true)
-       }
-       */
-    }
-    cht.reply("Success clearing session✅️")
-  })
-
+        cmd: ['csesi','clearsesi','clearsession','clearsessi'], 
+        listmenu: ['clearsesi'],
+        isOwner: true,
+        tag: "owner"
+    }, async ({ args }) => {
+      await cht.reply("Clearing session...")
+      let sessions = fs.readdirSync(session).filter(a => a !== "creds.json")
+      //const perStep = Math.ceil(sessions.length / 5)
+      for(let i = 0; i < sessions.length; i++){
+        await sleep(250)
+        fs.unlinkSync(session +"/"+ sessions[i])
+        /*
+        if ((i + 1) % perStep === 0 || i + 1 === sessions.length) {
+          const progress = Math.round(((i + 1) / sessions.length) * 100)
+          cht.edit(`Progress: ${progress}%`, keys[cht.sender], true)
+         }
+         */
+      }
+      cht.reply("Success clearing session✅️")
+    })
 }

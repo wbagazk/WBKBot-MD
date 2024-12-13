@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const axios = "axios".import()
 
@@ -11,7 +22,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
       cmd: ['pinterestdl', 'pindl'], 
-      listmenu: [], 
+      listmenu: ['pinterestdl'], 
       tag: 'downloader',
       urls: {
         formats: ["pinterest","pin"],
@@ -27,7 +38,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
   
     ev.on({ 
       cmd: ['mediafire', 'mediafiredl'], 
-      listmenu: [], 
+      listmenu: ['mediafire'], 
       tag: 'downloader',
       urls: {
         formats: ["mediafire"],
@@ -51,7 +62,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
 
     ev.on({ 
       cmd: ['tiktok', 'tiktokdl', 'tt'], 
-      listmenu: ['tiktok'], 
+      listmenu: ['tiktok', 'ttdl'], 
       tag: 'downloader',
       urls: {
         formats: ["tiktok"],
@@ -75,11 +86,11 @@ export default async function on({ cht, Exp, store, ev, is }) {
     })
 
     ev.on({ 
-      cmd: ['play','play2','ytmp3','ytmp4'],
-      listmenu: ['play','ytmp3','ytmp4'],
+      cmd: ['ytmp3', 'ytm4a', 'play', 'ytmp4', 'playvn'],
+      listmenu: ['ytmp3', 'ytm4a', 'play', 'ytmp4'],
       tag: 'downloader',
       badword: true,
-      args: "Sertakan ingin download videonya/lagunya!\n\nContoh: Download videonya (Link Youtube)",
+      args: "Harap sertakan url/judul videonya!",
       energy: 5
     }, async ({ args, urls }) => {
         const _key = keys[sender]
@@ -87,7 +98,6 @@ export default async function on({ cht, Exp, store, ev, is }) {
         if (!q) return cht.reply('Harap sertakan url/judul videonya!')
         try {
             await cht.edit("Searching...", _key)
-            console.log(q,args)
             let search = (await fetch(`${api.xterm.url}/api/search/youtube?query=${q}&key=${api.xterm.key}`).then(a => a.json())).data
             await cht.edit("Downloading...", _key)
             let item = search.items[0]
@@ -97,14 +107,14 @@ export default async function on({ cht, Exp, store, ev, is }) {
                 [cht.cmd === "ytmp4" ? "video" : cht.cmd === "ytmp3" ? "document" : "audio"]: { url: data.dlink },
                 mimetype: cht.cmd === "ytmp4" ? "video/mp4" : cht.cmd === "ytmp3" ? "audio/mp3" : "audio/mpeg",
                 fileName: item.title + (cht.cmd === "ytmp4" ? ".mp4" : ".mp3"),
-                ptt: cht.cmd === "play",
+                ptt: cht.cmd === "playvn",
                 contextInfo: {
                     externalAdReply: {
                         title: "Title: " + item.title,
                         body: "Channel: " + item.creator,
                         thumbnailUrl: item.thumbnail,
                         sourceUrl: item.url,
-                        mediaUrl: "http://ẉa.me/6282131282262?text=Idmsg: " + Math.floor(Math.random() * 100000000000000000),
+                        mediaUrl: "http://ẉa.me/6283110928302?text=Idmsg: " + Math.floor(Math.random() * 100000000000000000),
                         renderLargerThumbnail: false,
                         showAdAttribution: true,
                         mediaType: 2,
@@ -121,7 +131,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
       cmd: ['facebookdl','fb','fbdl','facebook'], 
-      listmenu: ['facebook'], 
+      listmenu: ['facebookdl'], 
       tag: 'downloader',
       urls: {
         msg: true,
@@ -138,7 +148,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
       cmd: ['instagramdl','ig','igdl','instagram'], 
-      listmenu: ['instagram'], 
+      listmenu: ['instagramdl'], 
       tag: 'downloader',
       urls: {
         msg: true,
@@ -163,7 +173,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
                     title: cht.pushName,
                     body: "Instagram Downloader",
                     thumbnailUrl: f.imageUrl,
-                    sourceUrl: "https://wbagazk.my.id/",
+                    sourceUrl: "https://github.com/Rifza123",
                     mediaUrl: "http://ẉa.me/6283110928302/"+Math.floor(Math.random() * 100000000000000000),
                     renderLargerThumbnail: true,
                     showAdAttribution: true,
@@ -172,8 +182,8 @@ export default async function on({ cht, Exp, store, ev, is }) {
                 forwardingScore: 19,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterName: "OWNER @WBAGAZK",
-                    newsletterJid: "120363369378768979@newsletter",
+                    newsletterName: "Termai",
+                    newsletterJid: "120363301254798220@newsletter",
                 }
             }
         }
@@ -186,5 +196,23 @@ export default async function on({ cht, Exp, store, ev, is }) {
              console.log(e)
            }
         }
-    }) 
+    })
+    
+    ev.on({ 
+        cmd: ['gitclone'],
+        listmenu: ['gitclone'],
+        tag: 'downloader',
+        urls: {
+          formats: ["github.com"],
+          msg: true
+        },
+        energy: 2
+    }, async() => {
+      const repo = cht.q.split('https://github.com/')[1]?.replace('.git', '')
+      const repoName = repo?.split("/")[1]
+      const { default_branch } = await fetch(`https://api.github.com/repos/${repo}`).then(res => res.json())
+      const zipUrl = `https://github.com/${repo}/archive/refs/heads/${default_branch}.zip`
+      Exp.sendMessage(cht.id, { document: { url: zipUrl }, mimetype: 'application/zip', fileName: `${repoName}.zip` }, { quoted: cht })
+      .catch(e => cht.reply(`[❗LINK ERROR ❗]\n\nExample : ${cht.prefix}${cht.cmd} https://github.com/adiwajshing/baileys.git`))
+  })
 }

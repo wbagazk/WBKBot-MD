@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const fs = "fs".import()
 
@@ -9,18 +20,17 @@ export default async function on({ cht, Exp, store, ev, is }) {
    
     ev.on({ 
         cmd: ['group','resetlink','open','close','linkgc'],
-        listmenu: ['group <options>'],
+        listmenu: ['group <options>','resetlink','linkgc','open','close'],
         tag: 'group',
         isGroup: true,
         isAdmin: true,
         isBotAdmin: true,
     }, async() => {
         let opts = {
-          open: ["open"],
-          close: ["close"],
-          link: ["link","linkgc"],
-          kick: ["kick"],
-          reset: ["resetlink"],
+          open: ["buka", "open"],
+          close: ["tutup", "close"],
+          link: ["link","linkgroup","linkgc"],
+          reset: ["resetlink","revokelink","revokeinvitelink"],
           locked: ["locked-change"],
           onephemeral: ["on-ephemeral"],
           offephemeral: ["off-ephemeral"],
@@ -54,13 +64,13 @@ export default async function on({ cht, Exp, store, ev, is }) {
                 exp: Date.now() + 60000,
                 accepts
             })
-		}
+    }
 
     })
     
     ev.on({ 
-        cmd: ['kick','k','add'],
-        listmenu: [],
+        cmd: ['kick','add'],
+        listmenu: ['kick','add'],
         tag: 'group',
         isGroup: true,
         isAdmin: true,
@@ -73,11 +83,11 @@ export default async function on({ cht, Exp, store, ev, is }) {
             if(status == 409) return cht.reply('Dia sudah join!')
             if(status == 500) return cht.reply('Grub penuh!')
             if(status == 403) return cht.reply("Maaf, gabisa ditambah karna private acc")
-	})
-	
-	ev.on({ 
+  })
+  
+  ev.on({ 
         cmd: ['getpp'],
-        listmenu: [],
+        listmenu: ['getpp'],
         tag: 'group',
         isMention: true
     }, async() => {
@@ -87,11 +97,11 @@ export default async function on({ cht, Exp, store, ev, is }) {
       } catch { 
          cht.reply("Gabisa, keknya dia gapake pp")
       }
-	})
-	
-	ev.on({ 
-        cmd: ['tagall','hidetag','@'],
-        listmenu: [],
+  })
+  
+  ev.on({ 
+        cmd: ['tagall','hidetag'],
+        listmenu: ['tagall','hidetag'],
         tag: 'group',
         isGroup: true,
         isAdmin: true
@@ -105,11 +115,11 @@ export default async function on({ cht, Exp, store, ev, is }) {
            }
          }
         Exp.sendMessage(cht.id, { text, mentions }, { quoted: cht })
-	})
-	
-	ev.on({ 
+  })
+  
+  ev.on({ 
         cmd: ['on','off'],
-        listmenu: [],
+        listmenu: ['on','off'],
         tag: 'group',
         isGroup: true,
         isAdmin: true
@@ -125,7 +135,6 @@ export default async function on({ cht, Exp, store, ev, is }) {
           })
           return cht.reply(text)
         }
-        console.log(cht.cmd)
         let sets = Data.preferences[cht.id]
             sets[input] = sets[input] || false
         if(cht.cmd == "on" && sets[input]) return cht.reply(`*${input}* sudah aktif disini!`)
@@ -135,10 +144,10 @@ export default async function on({ cht, Exp, store, ev, is }) {
               sets.links = sets.links ||["chat.whatsapp.com"]
             }
         cht.reply(infos.group.on(cht.cmd, input))
-	})
-	ev.on({ 
+  })
+  ev.on({ 
         cmd: ['antilink'],
-        listmenu: [],
+        listmenu: ['antilink'],
         tag: 'group',
         args: infos.about.antilink,
         isGroup: true,
@@ -170,6 +179,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
          cht.reply(infos.about.antilink)
        }
     })
+    
     ev.on({ 
         cmd: ['afk'],
         listmenu: ['afk'],

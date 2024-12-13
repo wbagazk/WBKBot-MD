@@ -1,6 +1,6 @@
 {
   "name": "WBKBot",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Artificial Intelligence, The Rise of the Robotic Age",
   "main": "index.js",
   "type": "module",

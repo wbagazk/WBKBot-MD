@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const fs = "fs".import()
 const { generateWAMessageFromContent } = "baileys".import()
@@ -9,7 +20,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
 
     ev.on({ 
         cmd: ['pin','pinterest','pinterestsearch'],
-        listmenu: [],
+        listmenu: ['pinterest'],
         tag: 'search',
         args: "Cari apa?",
         badword: true,
@@ -32,12 +43,12 @@ export default async function on({ cht, Exp, store, ev, is }) {
                     imageMessage: img,
                     hasMediaAttachment: true,
                  },
-                 body: { text: `${query?.trim()} #${cards.length+1}` },
+                 body: { text: `#${cards.length+1}` },
                  nativeFlowMessage: {
                      buttons: [
                      {
                        name: "cta_url",
-                       buttonParamsJson: '{"display_text":"Follow @wbagazk","url":"https://www.instagram.com/wbagazk/","webview_presentation":null}',
+                       buttonParamsJson: '{"display_text":"WhatsappChannel","url":"https://whatsapp.com/channel/0029VaauxAt4Y9li9UtlCu1V","webview_presentation":null}',
                      },
                    ],
                  },
@@ -68,23 +79,24 @@ export default async function on({ cht, Exp, store, ev, is }) {
         } else {
           Exp.sendMessage(id, { image: { url: api.rifza.url + "/api/pinterest-v2?query="+query } }, { quoted: cht })
         }
-	})
-	
-	ev.on({ 
+  })
+  
+  ev.on({ 
         cmd: ['gis','image','gimage','googleimage','gimg','googleimg'],
-        listmenu: [],
+        listmenu: ['googleimage'],
         tag: 'search',
         args: `Contoh: ${cht.msg} Xun'er`,
+        badword: true,
         energy: 5
     }, async() => {
         let url = await await fetch(api.xterm.url + "/api/search/google-image?query=rule34 "+cht.q).then(async a => (await a.json()).data.getRandom())
         Exp.sendMessage(id, { image: { url, }, caption: `Google image search: \`${cht.q}\`` }, { quoted: cht })
         .catch(()=> cht.reply(`Failed downloading url: ${url}`))
-	})
-	
-	ev.on({ 
+  })
+  
+  ev.on({ 
         cmd: ['pinvid','pinterestvid','pinterestvideo'],
-        listmenu: [],
+        listmenu: ['pinterestvideo'],
         tag: 'search',
         args: "Cari apa?",
         badword: true,
@@ -94,10 +106,13 @@ export default async function on({ cht, Exp, store, ev, is }) {
         let [ query, geser ] = cht?.q?.split("--geser")
         let amount = parseInt(geser?.split(" ")?.[1]||5)
             amount = amount > 10 ? 10 : amount < 1 ? 1 : amount
+        
         await cht.edit(infos.messages.wait, keys[sender])
 
         let data = (await fetch(api.xterm.url + "/api/search/pinterest-video?query=" + query + "&key=" + api.xterm.key).then(a => a.json())).data?.pins ||[]
+
         if(data.length < 1) return cht.reply("Video tidak ditemukan!")
+
         if(typeof geser == "string"){
           let res = await fetch(`${api.xterm.url}/api/search/pinterest-image?query=${query}&key=${api.xterm.key}`).then(a => a.json())
           let cards = []
@@ -154,10 +169,9 @@ export default async function on({ cht, Exp, store, ev, is }) {
           Exp.sendMessage(id, { video: { url: _pin }, caption: pin.title, mimetype: "video/mp4"}, { quoted: cht })                
         }
         
-
         } catch (e){
            return cht.reply("TypeErr:" + e.message)
         }
-	})
+  })
 
 }

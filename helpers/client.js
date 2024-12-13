@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const chalk = "chalk".import()
 
@@ -6,7 +17,7 @@ export default
 
 async function client({ Exp, store, cht, is }) {
    // if(cht.id == "120363203820002181@g.us") return
-let { func } = Exp
+   let { func } = Exp
     try {
         if(cht.memories?.banned && !is.owner){
           if((cht.memories.banned * 1) > Date.now()) return
@@ -35,8 +46,8 @@ let { func } = Exp
         }
 
         /*!-======[ Block Chat ]======-!*/
-		const groupDb = is.group ? Data.preferences[cht.id] : {}
-	    
+        const groupDb = is.group ? Data.preferences[cht.id] : {}
+        
         if (global.cfg.public === false && !is.owner && !is.me) return
         
         let except = is.antiTagall || is.antibot
@@ -67,13 +78,12 @@ let { func } = Exp
 
         /*!-======[ Chat Interactions Add ]======-!*/
         if (!cht.cmd && is.botMention) {
-             await func.archiveMemories.addChat(cht.sender)
+            await func.archiveMemories.addChat(cht.sender)
         }
-	await func.archiveMemories.setItem(cht.sender, "name", cht.pushName)
+        await func.archiveMemories.setItem(cht.sender, "name", cht.pushName)
         func.archiveMemories.setItem(cht.sender, "lastChat", Date.now())
     } catch (error) {
         console.error('Error in client.js:', error)
     }
     return
-    
 }

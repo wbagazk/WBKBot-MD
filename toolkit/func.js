@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 const { jidDecode, downloadContentFromMessage, generateWAMessageContent } = 'baileys'.import()
 const fs = "fs".import()
 const axios = "axios".import()
@@ -568,6 +579,5 @@ export class func {
       })
     })
   }
-
 
 }

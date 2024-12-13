@@ -1,3 +1,14 @@
+/*//////////////////////////////////////////////
+DEVELOPED BY @WBAGAZK
+Github : https://github.com/wbagazk/
+All Social Media : @wbagazk
+
+BASE Rifza123
+Github : https://github.com/Rifza123
+
+PLEASE, DO NOT DELETE THIS CREDIT, RESPECT IT!!!
+//////////////////////////////////////////////*/
+
 /*!-======[ Module Imports ]======-!*/
 const fs = "fs".import()
 const { generateWAMessageFromContent } = "baileys".import()
@@ -19,7 +30,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
         cmd: ['remini'], 
         listmenu: ['remini'],
         tag: "tools",
-        energy: 10,
+        energy: 30,
         media: { 
            type: ["image"]
         }
@@ -29,11 +40,10 @@ export default async function on({ cht, Exp, store, ev, is }) {
        let tph = await catbox(media)
          await cht.edit('Processing...', _key)
        let res = (await fetch(api.xterm.url + "/api/tools/remini?url=" + tph + "&key=" + api.xterm.key).then(a => a.json())).data
-         await Exp.sendMessage(id, { image: { url: res.url }, caption: `Sukses`}, { quoted: cht })
-         cht.edit("Nih...", _key)
+         await Exp.sendMessage(id, { image: { url: res.url }, caption: `Response Time: ${res.run_Time}`}, { quoted: cht })
     })
      
-	ev.on({ 
+    ev.on({ 
         cmd: ['tmpfile','tmpfiles'],
         listmenu: ['tmpfiles'],
         tag: 'tools',
@@ -44,11 +54,11 @@ export default async function on({ cht, Exp, store, ev, is }) {
     }, async({ media }) => {
         let tmp = await tmpFiles(media)
             await cht.edit(tmp, keys[sender])
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['tourl','catbox'],
-        listmenu: ['catbox'],
+        listmenu: ['tourl','catbox'],
         tag: 'tools',
         energy: 5,
         media: { 
@@ -57,11 +67,11 @@ export default async function on({ cht, Exp, store, ev, is }) {
     }, async({ media }) => {
         let tmp = await catbox(media)
             await cht.edit(tmp, keys[sender])
-	})
+    })
 
-	ev.on({ 
+    ev.on({ 
         cmd: ['img2prompt','tomprompt','imgtoprompt','imagetoprompt','image2prompt'],
-        listmenu: [],
+        listmenu: ['img2prompt'],
         tag: 'tools',
         energy: 28,
         media: { 
@@ -73,10 +83,10 @@ export default async function on({ cht, Exp, store, ev, is }) {
         let dsc = await fetch(`${api.xterm.url}/api/img2txt/instant-describe?url=${tph}&key=${api.xterm.key}`)
         .then(response => response.json())
         cht.reply(dsc.prompt)
-	})
-	ev.on({ 
+    })
+    ev.on({ 
         cmd: ['enhance','upscale'],
-        listmenu: ['enhance'],
+        listmenu: ['enhance', 'enhance list'],
         tag: 'tools',
         energy: 35,
         media: { 
@@ -112,11 +122,11 @@ export default async function on({ cht, Exp, store, ev, is }) {
              break
           }
         }
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['ss','ssweb'],
-        listmenu: [],
+        listmenu: ['ssweb'],
         tag: 'tools',
         energy: 7.5,
         urls: {
@@ -125,13 +135,13 @@ export default async function on({ cht, Exp, store, ev, is }) {
     }, async() => {
         let q = is.quoted?.url || is.url 
         Exp.sendMessage(id, { image: { url : 'https://image.thum.io/get/width/1900/crop/1000/fullpage/' + q[0] }, caption: `Result✔️`}, { quoted: cht } )
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['musixsearch','searchmusic','whatmusic','searchsong','musicrecognition'],
-        listmenu: [],
+        listmenu: ['whatmusic'],
         tag: 'tools',
-	    energy: 10,
+        energy: 10,
         media: { 
            type: ["audio"]
         }
@@ -139,27 +149,27 @@ export default async function on({ cht, Exp, store, ev, is }) {
          await cht.edit("Bntar tak dengerin dulu...", keys[sender])
          musixSearch(media)
          .then(a => cht.reply(a))
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['audio2text','audio2txt','transcribe'],
-        listmenu: [],
+        listmenu: ['transcribe'],
         tag: 'tools',
-	    energy: 25,
+        energy: 25,
         media: { 
            type: ["audio"]
         }
     }, async({ media }) => {
          transcribe(media)
          .then(a => cht.reply(a.text))
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['getchid','getchannelid','getsaluranid','getidsaluran'],
-        listmenu: [],
+        listmenu: ['getchid'],
         tag: 'tools',
-	    energy: 10,
-	    isQuoted: "Reply pesan yang diteruskan dari saluran!"
+        energy: 10,
+        isQuoted: "Reply pesan yang diteruskan dari saluran!"
     }, async() => {
       try {
          let res = (await store.loadMessage(id, cht.quoted.stanzaId)).message[cht.quoted.type].contextInfo.forwardedNewsletterMessageInfo
@@ -172,14 +182,13 @@ export default async function on({ cht, Exp, store, ev, is }) {
            console.log(cht.quoted)
            cht.reply("Error get Channel id" + e.message)
        }
-	})
-	
-	ev.on({ 
-        cmd: ['colong','c','copy'],
-        listmenu: [],
+    })
+    
+    ev.on({ 
+        cmd: ['colong','c'],
+        listmenu: ['colong'],
         tag: 'tools',
-        isOwner: true,
-        args: infos.owner.copy
+        premium: true
     }, async({ cht }) => {
       try {
          if(!cht.quoted) return
@@ -194,28 +203,25 @@ export default async function on({ cht, Exp, store, ev, is }) {
          await eval(`ev.on({ 
              cmd: ['${random}'],
              listmenu: ['${random}'],
-             tag: ''
+             tag: 'other'
          }, async({ cht }) => {
              ${evaled.replace("cht.sender","cht.id")}
          })`)
          console.log(random)
          await sleep(3000)
-         let coderandom =`KODE CMD .${random}`
-         // await cht.reply(`Code telah dikirimkan melalui chat pribadi!. Ketik .${random} Untuk melihat hasil`)
+        // await cht.reply(`Code telah dikirimkan melalui chat pribadi!. Ketik .${random} Untuk melihat hasil`)
          await sleep(3000)
          await Exp.sendMessage(owner[0], { text: evaled }, { quoted: cht })
-         await Exp.sendMessage(owner[0], { text: coderandom }, { quoted: cht })
-
        } catch(e) {
            console.log(cht.quoted)
        }
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['vocalremover','stems'],
-        listmenu: [],
+        listmenu: ['vocalremover'],
         tag: 'tools',
-	    energy: 50,
+        energy: 50,
         media: { 
            type: ["audio"],
            msg: "Mana audionya?"
@@ -232,13 +238,13 @@ export default async function on({ cht, Exp, store, ev, is }) {
          let a = (await response.json()).data
          await Exp.sendMessage(id, { audio: { url: a[0].link }, mimetype: "audio/mpeg" }, { quoted: cht })
          await Exp.sendMessage(id, { audio: { url: a[1].link }, mimetype: "audio/mpeg" }, { quoted: cht })
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['toimage','toimg'],
         listmenu: ['toimg'],
         tag: 'tools',
-	    energy: 4,
+        energy: 4,
         media: { 
            type: ["sticker"],
            etc: {
@@ -247,22 +253,22 @@ export default async function on({ cht, Exp, store, ev, is }) {
         }
     }, async({ media }) => {
          Exp.sendMessage(id, { image: media }, { quoted: cht })
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['enc','encryptjs','encrypt'],
-        listmenu: [],
+        listmenu: ['encryptjs'],
         tag: 'tools',
         args: "Mana code js nya?",
         energy: 2
     }, async() => {
         let res = await EncryptJs(cht.q)
         Exp.sendMessage(cht.id, { document: Buffer.from(res.data), mimetype:"application/javascript", fileName:"encrypt.js" }, { quoted:cht })
-	})
-	
-	ev.on({ 
+    })
+    
+    ev.on({ 
         cmd: ['removebg'], 
-        listmenu: [],
+        listmenu: ['removebg'],
         tag: "tools",
         energy: 15,
         media: { 
@@ -270,7 +276,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
         }
     }, async({ media }) => {
        const _key = keys[sender]
-         await cht.edit("Tunggu...", _key)
+         await cht.edit("Bntr...", _key)
        let tph = await catbox(media)
          await cht.edit('Processing...', _key)
        let res = (await fetch(api.xterm.url + "/api/tools/image-removebg?url=" + tph + "&key=" + api.xterm.key).then(a => a.json())).data
@@ -279,7 +285,7 @@ export default async function on({ cht, Exp, store, ev, is }) {
    
     ev.on({ 
         cmd: ['objectdetection'], 
-        listmenu: [],
+        listmenu: ['objectdetection'],
         tag: "tools",
         energy: 15,
         media: { 
@@ -309,12 +315,12 @@ export default async function on({ cht, Exp, store, ev, is }) {
     
     ev.on({ 
         cmd: ['hextorgba','rgbatohex','change'],
-        listmenu: [],
+        listmenu: ['hextorgba','rgbatohex'],
         tag: 'tools',
         args: "Sertakan rgba atau hex untuk di konversi?",
         energy: 2
     }, async() => {
         if(cht.q.startsWith("rgb")) return cht.reply(func.rgbaToHex(cht.q))
          cht.reply(func.hexToRgba(cht.q))
-	})
+    })
 }
